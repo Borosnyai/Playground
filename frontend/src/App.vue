@@ -1,95 +1,109 @@
-<script setup>
+<script>
+import { ref, onMounted } from 'vue'
 import SensorCard from './components/SensorCard.vue'
-import GaugeCard from './components/GuageCard.vue';
 
+const sensors = ref([])
 
-const sensors = [
-  {
-    name: 'Vibration Sensor',
-    type: 'vibration',
-    velocity: 2.5,
-    frequency: 60,
-    temperature: 45,
-    status: 'OK'
-  },
-  {
-    name: 'Light Barrier',
-    type: 'light-barrier',
-    blocked: false,
-    temperature: 25,
-    status: 'OK'
-  },
-  {
-    name: 'Distance Sensor',
-    type: 'distance',
-    distance: 150,
-    temperature: 30,
-    status: 'OK'
-  },
-  {
-    name: 'Pressure Sensor',
-    type: 'pressure',
-    pressure: 5.2,
-    temperature: 28,
-    status: 'OK'
+function statusByRange(value, warnMin, warnMax, critMin, critMax) {
+  if(value > critMin || value < critMax){
+    return 'CRITICAL'
   }
-]
-</script>
+  if (value < warnMin || value > warnMax) {
+    return 'WARN'
+  }
+  return 'OK'
+}
+function colorBystatus(status) {
+  if(status == 'OK'){
+    return 'text-success'
+  }
+  return 'text-warning'
+}
 
+
+function random(min, max) {
+  return +(Math.random() * (max - min) + min).toFixed(1)
+}
+function generateSensors() {
+
+  const tempValue = random(20, 90)
+  const airValue = random(10, 80)
+  const vibValue = random(1, 6)
+
+  sensors.value = [
+    // Temperatur
+    {
+      id: 1,
+      type: 'temperature',
+      title: 'Temperature',
+      value: tempValue,
+      unit: '°C',
+      status: statusByRange(tempValue, 30, 70, 20, 85)
+    },
+    // Luftqualität
+    {
+      id: 2,
+      type: 'air',
+      title: 'Air Quality',
+      value: airValue,
+      unit: 'AQI',
+      status: statusByRange(airValue, 20, 60, 10, 80)
+    },
+    // Vibration
+    {
+      id: 3,
+      type: 'vibration',
+      title: 'Vibration Sensor',
+      velocity: vibValue,
+      frequency: random(40, 80),
+      temperature: random(30, 60),
+      status: statusByRange(vibValue, 1, 4, 0.5, 5.5)
+    },
+    // Light Barrier
+    {
+      id: 4,
+      type: 'light',
+      title: 'Light Barrier',
+      blocked: Math.random() > 0.7,
+      status: 'OK'
+    },
+    // Distance Sensor
+    {
+      id: 5,
+      type: 'distance',
+      title: 'Distance Sensor',
+      value: random(50, 300),
+      unit: 'mm',
+      status: 'OK'
+    },
+    // Pressure
+    {
+      id: 6,
+      type: 'pressure',
+      title: 'Pressure Sensor',
+      value: random(1, 6),
+      unit: 'bar',
+      status: 'OK'
+    }
+  ]
+}
+// Automatische Aktualisierung
+onMounted(() => {
+  generateSensors();
+  setInterval(generateSensors, 2000)
+})
+
+</script>
 <template>
-  <div class="app">
-    <header>
-      <h1>Sensor Dashboard</h1>
-    </header>
-    <div class="dashboard">
-      <GaugeCard 
-        name="Temperature"
-        :value="70.8"
-        :max="100"
-        unit="°F"
-      />
-      <GaugeCard 
-        name="Air Quality"
-        :value="42"
-        :max="100"
-        unit="AQI"
-      />
-    <SensorCard 
-      v-for="sensor in sensors"
-      :key="sensor.name"
-      :name="sensor.name"
-      :type="sensor.type"
-      :velocity="sensor.velocity"
-      :frequency="sensor.frequency"
-      :temperature="sensor.temperature"
-      :distance="sensor.distance"
-      :pressure="sensor.pressure"
-      :blocked="sensor.blocked"
-      :status="sensor.status"
-    />
+  <div class="container py-4">
+    <h2 class="text-center text-light mb-4">Sensor Dashboard</h2>
+
+    <div class="row g-3">
+      <SensorCard
+        v-for="sensor in sensors"
+        :key="sensor.id"
+        :sensor="sensor"
+      ></SensorCard>
     </div>
   </div>
 </template>
-
-<style>
-.app {
-  background: #1a1a2e;
-  min-height: 100vh;
-  text-align: center;
-}
-
-header {
-  background: #16213e;
-  color: white;
-  padding: 20px;
-}
-
-.dashboard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-</style>
