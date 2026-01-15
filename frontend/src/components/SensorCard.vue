@@ -1,45 +1,60 @@
 <script setup>
-defineProps({
-  name: String,
-  type: String,
-  velocity: Number,
-  frequency: Number,
-  temperature: Number,
-  distance: Number,
-  pressure: Number,
-  blocked: Boolean,
-  status: String
+import { computed } from 'vue'
+
+const props = defineProps({
+  sensor: Object
+})
+
+const colorClass = computed(() => {
+  return props.sensor.status === 'OK'
+    ? 'text-success'
+    : 'text-warning'
 })
 </script>
 
 <template>
   <div class="sensor-card">
-    <h3>{{ name }}</h3>
-    
-    <div v-if="type === 'vibration'">
-      <p>Velocity: {{ velocity }} mm/s</p>
-      <p>Frequency: {{ frequency }} Hz</p>
-      <p>Temperature: {{ temperature }} °C</p>
+    <h3>{{ sensor.title }}</h3>
+
+    <!-- TEMPERATURE -->
+    <div v-if="sensor.type === 'temperature'">
+      <p :class="colorClass">
+        {{ sensor.value }} {{ sensor.unit }}
+      </p>
     </div>
-    
-    <div v-if="type === 'light-barrier'">
-      <p>Blocked: {{ blocked ? 'Yes' : 'No' }}</p>
-      <p>Temperature: {{ temperature }} °C</p>
+
+    <!-- VIBRATION -->
+    <div v-else-if="sensor.type === 'vibration'">
+      <p>Velocity: {{ sensor.velocity }} mm/s</p>
+      <p>Frequency: {{ sensor.frequency }} Hz</p>
+      <p>Temperature: {{ sensor.temperature }} °C</p>
     </div>
-    
-    <div v-if="type === 'distance'">
-      <p>Distance: {{ distance }} mm</p>
-      <p>Temperature: {{ temperature }} °C</p>
+
+    <!-- LIGHT BARRIER -->
+    <div v-else-if="sensor.type === 'light'">
+      <p>Blocked: {{ sensor.blocked ? 'Yes' : 'No' }}</p>
     </div>
-    
-    <div v-if="type === 'pressure'">
-      <p>Pressure: {{ pressure }} bar</p>
-      <p>Temperature: {{ temperature }} °C</p>
+
+    <!-- DISTANCE -->
+    <div v-else-if="sensor.type === 'distance'">
+      <p>Distance: {{ sensor.value }} {{ sensor.unit }}</p>
     </div>
-    
-    <p>Status: <span class="badge">{{ status }}</span></p>
+
+    <!-- PRESSURE -->
+    <div v-else-if="sensor.type === 'pressure'">
+      <p>Pressure: {{ sensor.value }} {{ sensor.unit }}</p>
+    </div>
+
+    <!-- STATUS -->
+    <span
+      class="badge"
+      :class="sensor.status === 'OK' ? 'bg-success' : 'bg-warning'"
+    >
+      {{ sensor.status }}
+    </span>
   </div>
 </template>
+
 
 <style scoped>
 .sensor-card {
