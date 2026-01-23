@@ -5,12 +5,13 @@ const props = defineProps({
   sensor: Object
 })
 
-const colorClass = computed(() => {
-  return props.sensor.status === 'OK'
-    ? 'text-success'
-    : 'text-warning'
+const statusClass = computed(() => {
+  if (props.sensor.status === 'CRITICAL') return 'bg-danger'
+  if (props.sensor.status === 'WARN') return 'bg-warning'
+  return 'bg-success'
 })
 </script>
+
 
 <template>
   <div class="sensor-card">
@@ -46,10 +47,7 @@ const colorClass = computed(() => {
     </div>
 
     <!-- STATUS -->
-    <span
-      class="badge"
-      :class="sensor.status === 'OK' ? 'bg-success' : 'bg-warning'"
-    >
+    <span class="badge" :class="sensor.status === 'OK' ? 'bg-success' : 'bg-warning'">
       {{ sensor.status }}
     </span>
   </div>
