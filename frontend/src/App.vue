@@ -7,6 +7,8 @@ const store = useSensorStore()
 
 onMounted(() => {
   // MockDataService
+  store.updateSensors()
+  setInterval(store.updateSensors, 2000)
 })
 </script>
 
