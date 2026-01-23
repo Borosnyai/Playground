@@ -6,7 +6,7 @@ import SensorCard from './components/SensorCard.vue'
 const store = useSensorStore()
 
 onMounted(() => {
-  // ide jön majd a MockDataService
+  // MockDataService
 })
 </script>
 
