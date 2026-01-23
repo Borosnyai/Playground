@@ -1,9 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { Doughnut } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip } from 'chart.js'
 
+
 ChartJS.register(ArcElement, Tooltip)
+
+
 
 const props = defineProps({
   name: String,
@@ -12,13 +15,13 @@ const props = defineProps({
   unit: String
 })
 
-const chartData = ref({
+const chartData = computed(() => ({
   datasets: [{
     data: [props.value, props.max - props.value],
     backgroundColor: ['#28a745', '#e0e0e0'],
     borderWidth: 0
   }]
-})
+}))
 
 const chartOptions = ref({
   responsive: true,
