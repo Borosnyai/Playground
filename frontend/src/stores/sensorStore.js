@@ -8,7 +8,9 @@ export const useSensorStore = defineStore('sensor', {
 
   actions: {
     updateSensors() {
-      this.sensors = getSensors()
+      const data = getSensors()
+      console.log('Sensors:', data)
+      this.sensors = data
     }
   }
 })
