@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import { getMockSensors } from '../services/mockDataService'
+import { getSensors } from '../services/dataService'
 
 export const useSensorStore = defineStore('sensor', {
   state: () => ({
@@ -8,7 +8,7 @@ export const useSensorStore = defineStore('sensor', {
 
   actions: {
     updateSensors() {
-      this.sensors = getMockSensors()
+      this.sensors = getSensors()
     }
   }
 })
