@@ -1,0 +1,13 @@
+# Root level Node artifacts
+node_modules/
+package-lock.json
+package.json
+
+# Frontend ignores (extra safety)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Editor / OS
+.vscode/
+.DS_Store
