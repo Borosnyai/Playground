@@ -1,10 +1,12 @@
-const API_URL = 'http://your-iolink-master-api/sensors';
-
-async function fetchSensorData() {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    displaySensors(data);
-}
+const testData = [
+    {
+        name: 'Vibration Sensor 1',
+        velocity: 2.5,
+        frequency: 60,
+        temperature: 45,
+        status: 'OK'
+    }
+];
 
 function displaySensors(sensors) {
     const container = document.getElementById('sensorCards');
@@ -16,8 +18,10 @@ function displaySensors(sensors) {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${sensor.name}</h5>
-                        <p class="card-text">Value: ${sensor.value}</p>
-                        <p class="card-text">Unit: ${sensor.unit}</p>
+                        <p class="card-text">Velocity: ${sensor.velocity} mm/s</p>
+                        <p class="card-text">Frequency: ${sensor.frequency} Hz</p>
+                        <p class="card-text">Temperature: ${sensor.temperature} °C</p>
+                        <p class="card-text">Status: <span class="badge bg-success">${sensor.status}</span></p>
                     </div>
                 </div>
             </div>
@@ -25,5 +29,4 @@ function displaySensors(sensors) {
     });
 }
 
-fetchSensorData();
-setInterval(fetchSensorData, 5000);
+displaySensors(testData);
