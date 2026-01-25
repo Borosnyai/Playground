@@ -10,10 +10,9 @@ async function wakeup(port) {
             body: `UDP_Packet=24.00.02.0F.${port}.00.0C.11.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.00.20.20`,
         }
         const resp = await fetch(master_url, options);
-        // console.log(resp);
     }
     catch(e){
-        console.log(e.message);
+        console.log("Wakeup didn't work: " + e.message);
     }
 }
 
@@ -25,15 +24,24 @@ async function get_ports() {
         const resp_string = await resp.json();
         const all_ports = resp_string.ports;
         const active_ports = all_ports.filter( port => port.productId != '');
-        console.log("Folgende Sensoren sind angeschlossen:")
+        console.log(`Folgende ${active_ports.length} Sensoren sind angeschlossen:`)
         active_ports.forEach(element => {
             console.log(element.productText + " mit ProductId " + element.productId)
         });
     }
     catch(e){
-        console.log(e);
+        console.log("Didn't get any ports: " + e.message);
     }
 }
 
-//wakeup('02');
-get_ports();
+const sensor_count = 4;
+
+async function init_master(ports){ 
+    for (i = 0; i<= sensor_count; i++){
+        await wakeup(i.toString());
+    };
+    await get_ports();
+}
+
+
+init_master(sensor_count);
