@@ -18,7 +18,7 @@ export async function switch_on(val) {
         const resp = await fetch(master_url, options);
     }
     catch(e){
-        console.log("That didn't work: " + e.message);
+        console.log("Switching didn't work: " + e.message);
     }
 }
 
