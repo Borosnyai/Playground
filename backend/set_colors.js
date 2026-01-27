@@ -1,6 +1,8 @@
-import { get_ports } from "./wakeup.js";
+import { get_ports, get_port_details } from "./wakeup.js";
+import { datahexToDecimal, transform_range } from "./parse.js";
 
 
+get_port_details();
 
 // console.log(port_data);
 
@@ -9,10 +11,17 @@ import { get_ports } from "./wakeup.js";
 setInterval(async ()=> 
     {
         try {
-            const port_data = await get_ports();   
-            console.log(port_data[1].processInputs);
+            const port_data = await get_ports();
+            const sensor_value = port_data[1].processInputs;
+            const decimal = datahexToDecimal(sensor_value, 0, 2, false);
+            console.log(decimal);
+            console.log(Math.round(real_value) + "mm");
+
+
         }
         catch (e) {
             console.log("Diesmal zu langsam: " + e.message);
         }
-    }, 500);
+    }, 2000);
+
+

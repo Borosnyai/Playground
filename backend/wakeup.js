@@ -24,13 +24,6 @@ export async function get_ports() {
         const resp_string = await resp.json();
         const all_ports = resp_string.ports;
         const active_ports = all_ports.filter( port => port.productId != '');
-
-        // the following 4 lines just for control purposes (uncomment if necessary)
-
-        // console.log(`Folgende ${active_ports.length} Sensoren sind angeschlossen:`)
-        // active_ports.forEach(element => {
-        //     console.log(element.productText + " mit ProductId " + element.productId)
-        // });
         return active_ports;
     }
     catch(e){
@@ -47,5 +40,12 @@ async function init_master(ports){
     await get_ports();
 }
 
+// get port details:
 
-
+export async function get_port_details() {
+    const port_data = await get_ports();
+    console.log(`Folgende ${port_data.length} Sensoren sind angeschlossen:`)
+    port_data.forEach(element => {
+        console.log(element.productText + " mit ProductId " + element.productId)
+    });
+}
