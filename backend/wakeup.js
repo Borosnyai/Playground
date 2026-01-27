@@ -49,3 +49,5 @@ export async function get_port_details() {
         console.log(element.productText + " mit ProductId " + element.productId)
     });
 }
+
+init_master(1);

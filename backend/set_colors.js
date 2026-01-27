@@ -1,21 +1,24 @@
 import { get_ports, get_port_details } from "./wakeup.js";
-import { datahexToDecimal, transform_range, get_hex } from "./parse.js";
+import { datahexToDecimal, transform_range, get_hex, dec_to_hex } from "./parse.js";
 import { switch_on } from "./lights.js";
 
 
-get_port_details();
+//get_port_details();
 
 // console.log(port_data);
 
 // interval has to be min. 500!!!
 
-setInterval(async ()=> 
+async function val_to_light() 
     {
         try {
             const port_data = await get_ports();
             const sensor_value = port_data[1].processInputs;
+            // first two bytes are the measured distance - parse to decimal:
             const decimal = datahexToDecimal(sensor_value, 0, 2, false);
-            const val = get_hex(sensor_value,0,2,true);
+            // the light takes 2 bytes as input - the maximum value from distance sensor is 6500
+            // thus: value * 10
+            const val = dec_to_hex(decimal * 10);
             console.log(val);
             console.log(decimal/10 + "mm");
             await switch_on(val);
@@ -23,6 +26,10 @@ setInterval(async ()=>
         catch (e) {
             console.log("Diesmal zu langsam: " + e.message);
         }
-    }, 1000);
+        finally {
+            // waits for async functions, then short timeout
+            setTimeout(val_to_light, 100);
+        }
+    }
 
-
+val_to_light();

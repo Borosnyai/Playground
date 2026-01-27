@@ -40,3 +40,15 @@ export function get_hex(hexStr, startIndex, length, littleEndian = true){
     // use built-in function to calculate the decimal value
     return hexValue;
 }
+
+
+export function dec_to_hex(dec){
+    const hex = dec.toString(16);
+    const full_hex = hex.padStart(4,'0').toUpperCase();
+    const hex_01 = full_hex.substring(0,2);
+    const hex_02 = full_hex.substring(2,4);
+    const result = hex_01 + '.' + hex_02;
+    return result;
+}
+
+//dec_to_hex(250);
