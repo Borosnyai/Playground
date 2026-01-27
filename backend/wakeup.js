@@ -18,30 +18,34 @@ async function wakeup(port) {
 
 // get the info from all active ports
 
-async function get_ports() {
+export async function get_ports() {
     try{
         const resp = await fetch(ports_url);
         const resp_string = await resp.json();
         const all_ports = resp_string.ports;
         const active_ports = all_ports.filter( port => port.productId != '');
-        console.log(`Folgende ${active_ports.length} Sensoren sind angeschlossen:`)
-        active_ports.forEach(element => {
-            console.log(element.productText + " mit ProductId " + element.productId)
-        });
+        return active_ports;
     }
     catch(e){
         console.log("Didn't get any ports: " + e.message);
     }
 }
 
-const sensor_count = 4;
+const sensor_count = 2;
 
 async function init_master(ports){ 
-    for (i = 0; i<= sensor_count; i++){
+    for (let i = 0; i<= sensor_count; i++){
         await wakeup(i.toString());
     };
     await get_ports();
 }
 
+// get port details:
 
-init_master(sensor_count);
+export async function get_port_details() {
+    const port_data = await get_ports();
+    console.log(`Folgende ${port_data.length} Sensoren sind angeschlossen:`)
+    port_data.forEach(element => {
+        console.log(element.productText + " mit ProductId " + element.productId)
+    });
+}
