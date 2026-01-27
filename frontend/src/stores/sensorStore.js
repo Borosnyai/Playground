@@ -29,5 +29,12 @@ export const useSensorStore = defineStore('sensor', {
       state.sensors.filter(
         s => s.type === 'distance' || s.type === 'pressure'
       )
+  },
+  getters: {
+    gaugeSensors(state) {
+      return state.sensors.filter(
+        s => s.type === 'temperature' || s.type === 'air'
+      )
+    }
   }
 })
