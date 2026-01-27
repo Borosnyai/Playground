@@ -24,10 +24,14 @@ export async function get_ports() {
         const resp_string = await resp.json();
         const all_ports = resp_string.ports;
         const active_ports = all_ports.filter( port => port.productId != '');
-        console.log(`Folgende ${active_ports.length} Sensoren sind angeschlossen:`)
-        active_ports.forEach(element => {
-            console.log(element.productText + " mit ProductId " + element.productId)
-        });
+
+        // the following 4 lines just for control purposes (uncomment if necessary)
+
+        // console.log(`Folgende ${active_ports.length} Sensoren sind angeschlossen:`)
+        // active_ports.forEach(element => {
+        //     console.log(element.productText + " mit ProductId " + element.productId)
+        // });
+        return active_ports;
     }
     catch(e){
         console.log("Didn't get any ports: " + e.message);
@@ -44,4 +48,4 @@ async function init_master(ports){
 }
 
 
-//init_master(sensor_count);
+
