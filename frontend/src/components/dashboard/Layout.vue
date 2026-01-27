@@ -1,7 +1,7 @@
 <script>
 import OverviewBar from './OverviewBar.vue'
 import GaugeSection from './GaugeSection.vue'
-import SensorGrid from '.SensorGrid.vue'
+import SensorGrid from './SensorGrid.vue'
 
 </script>
 
