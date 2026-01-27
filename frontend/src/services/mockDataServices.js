@@ -65,6 +65,22 @@ export function getMockSensors() {
       value: random(1, 6),
       unit: 'bar',
       status: 'OK'
+    },
+    {
+      id: 10,
+      type: 'bcm',
+      title: 'Condition Monitoring (BCM0001)',
+      vibration: {
+        x: random(0.5, 5),
+        y: random(0.5, 5),
+        z: random(0.5, 5),
+        unit: 'mm/s'
+      },
+      temperature: {
+        value: random(25, 70),
+        unit: '°C'
+      },
+      status: Math.random() > 0.8 ? 'WARN' : 'OK'
     }
   ]
 }
