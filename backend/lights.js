@@ -1,4 +1,4 @@
-import { get_hex } from "./parse.js";
+import { get_hex, dec_to_hex } from "./parse.js";
 
 const master_url = "http://192.168.0.19/TMG.htm";
 
@@ -22,4 +22,19 @@ export async function switch_on(val) {
     }
 }
 
-switch_on("00.00");
+
+
+export async function level_up(){
+   for (let i = 0; i < 65000; i+= 3250){
+    await switch_on(dec_to_hex(i));
+   }
+   for (let i = 65000; i > 0; i-= 3250){
+    await switch_on(dec_to_hex(i));
+   }
+   switch_on("00.00");
+}
+
+
+//level_up();
+
+
