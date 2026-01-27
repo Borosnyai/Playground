@@ -14,8 +14,7 @@ setInterval(async ()=>
             const port_data = await get_ports();
             const sensor_value = port_data[1].processInputs;
             const decimal = datahexToDecimal(sensor_value, 0, 2, false);
-            console.log(decimal);
-            console.log(Math.round(real_value) + "mm");
+            console.log(decimal/10 + "mm");
 
 
         }
