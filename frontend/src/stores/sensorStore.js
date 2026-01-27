@@ -7,10 +7,18 @@ export const useSensorStore = defineStore('sensor', {
   }),
 
   actions: {
-    updateSensors() {
-      const data = getSensors()
-      console.log('Sensors:', data)
-      this.sensors = data
+    updateSensors(sensors) {
+      this.sensors = sensors
+    },
+
+    updateSensor(sensor) {
+      const index = this.sensors.findIndex(s => s.id === sensor.id)
+      if (index !== -1) {
+        this.sensors[index] = sensor
+      } else {
+        this.sensors.push(sensor)
+      }
     }
   }
+
 })
