@@ -18,7 +18,7 @@ async function wakeup(port) {
 
 // get the info from all active ports
 
-async function get_ports() {
+export async function get_ports() {
     try{
         const resp = await fetch(ports_url);
         const resp_string = await resp.json();
@@ -34,14 +34,14 @@ async function get_ports() {
     }
 }
 
-const sensor_count = 4;
+const sensor_count = 2;
 
 async function init_master(ports){ 
-    for (i = 0; i<= sensor_count; i++){
+    for (let i = 0; i<= sensor_count; i++){
         await wakeup(i.toString());
     };
     await get_ports();
 }
 
 
-init_master(sensor_count);
+//init_master(sensor_count);
