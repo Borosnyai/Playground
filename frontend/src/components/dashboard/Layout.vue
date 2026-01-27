@@ -1,15 +1,10 @@
-<script>
-import OverviewBar from './OverviewBar.vue'
-import GaugeSection from './GaugeSection.vue'
+<script setup>
 import SensorGrid from './SensorGrid.vue'
-
 </script>
 
 <template>
-  <div class="Container py-4">
-    <OverviewBar />
-    <GaugeSection />
-    <SennsorGrid />
-
+  <div class="container py-4">
+    <h2 class="text-light mb-4">Dashboard</h2>
+    <SensorGrid />
   </div>
 </template>
