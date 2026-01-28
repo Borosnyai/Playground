@@ -1,16 +1,3 @@
-<template>
-  <div class="timeseries-section">
-
-    <h2>Sensor History</h2>
-    <div class="chart-grid">
-      <div v-for="sensor in sensors" :key="sensor.id" class="chart-card">
-        <h3>{{ sensor.title }}</h3>
-        <canvas :id="'chart_' + sensor.id"></canvas>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup>
 import { onMounted } from 'vue';
 import { Chart } from 'chart.js/auto';
@@ -68,6 +55,21 @@ function getColor(status) {
   return '#ef4444';
 }
 </script>
+
+<template>
+  <div class="timeseries-section">
+
+    <h2>Sensor History</h2>
+    <div class="chart-grid">
+      <div v-for="sensor in sensors" :key="sensor.id" class="chart-card">
+        <h3>{{ sensor.title }}</h3>
+        <canvas :id="'chart_' + sensor.id"></canvas>
+      </div>
+    </div>
+  </div>
+</template>
+
+
 
 <style scoped>
 .time-series {

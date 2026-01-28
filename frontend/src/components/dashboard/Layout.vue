@@ -13,7 +13,7 @@ onMounted(() => {
   store.updateSensors()
   setInterval(() => {
     store.updateSensors()
-  }, 2000)
+  }, 5000)
 })
 </script>
 
