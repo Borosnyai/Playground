@@ -1,54 +1,38 @@
-<script setup>
-// Import the Pinia sensor store
-// This gives access to sensor data and getters
-import { useSensorStore } from '../../stores/sensorStore'
-
-// Create a store instance
-const store = useSensorStore()
-</script>
-
 <template>
-  <!-- Row for gauge cards -->
-  <div class="row mb-4">
-
-    <!-- Loop through gauge sensors (temperature + air quality) -->
-    <div v-for="sensor in store.gaugeSensors" :key="sensor.id" class="col-md-6">
-      <!-- Single gauge card -->
-      <div class="gauge-card text-center">
-
-        <!-- Sensor title -->
-        <h4>{{ sensor.title }}</h4>
-
-        <!-- Main sensor value with unit -->
-        <p class="gauge-value">
-          {{ sensor.value }} {{ sensor.unit }}
-        </p>
-
-        <!-- Status badge with color based on sensor status -->
-        <span class="badge" :class="sensor.status === 'OK'
-          ? 'bg-success'
-          : 'bg-warning'">
-          {{ sensor.status }}
-        </span>
-
-      </div>
+  <div class="gauge-section">
+    <h2>Gauge sensors: {{ gauges.length }}</h2>
+    <div class="gauge-grid">
+      <GaugeCard v-for="gauge in gauges" :key="gauge.id" :title="gauge.name" :value="gauge.value" :unit="gauge.unit"
+        :status="gauge.status" :max="gauge.max" />
     </div>
-
   </div>
 </template>
 
+<script>
+import GaugeCard from './GaugeCard.vue';
+
+export default {
+  components: { GaugeCard },
+  props: {
+    gauges: Array
+  }
+}
+</script>
+
 <style scoped>
-/* Card background and spacing */
-.gauge-card {
-  background: #2c3e50;
-  color: white;
-  padding: 24px;
-  border-radius: 12px;
+.gauge-section {
+  margin: 0;
 }
 
-/* Large value display for dashboard overview */
-.gauge-value {
-  font-size: 2.2rem;
-  font-weight: bold;
+.gauge-section h2 {
+  color: #e2e8f0;
+  margin-bottom: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 </style>

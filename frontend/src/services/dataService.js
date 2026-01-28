@@ -1,10 +1,6 @@
-import { getMockSensors } from "./mockDataServices"
-import { getMqttSensors } from "./mqttDataService"
-
-
-const useMockData = true 
+import { getMockSensors } from './mockDataServices'
 
 export function getSensors() {
-  return useMockData ? getMockSensors() : getMqttSensors()
+  return getMockSensors()
 }
 

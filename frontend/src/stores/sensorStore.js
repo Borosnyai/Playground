@@ -8,15 +8,11 @@ export const useSensorStore = defineStore('sensor', {
 
   actions: {
     updateSensors() {
-      // Load raw sensors from data service
       const data = getSensors()
-
-      // Map BCM sensor to include details for the UI
       this.sensors = data.map(sensor => {
         if (sensor.type === 'vibration') {
           return {
             ...sensor,
-            // Details are optional and UI-driven
             details: {
               Velocity: `${sensor.velocity} mm/s`,
               Frequency: `${sensor.frequency} Hz`,
@@ -24,15 +20,13 @@ export const useSensorStore = defineStore('sensor', {
             }
           }
         }
-
-        // All other sensors stay unchanged
         return sensor
       })
     }
   },
 
   getters: {
-    gaugeSensors: state =>
+    gaugeSensors: (state) =>
       state.sensors.filter(
         s => s.type === 'temperature' || s.type === 'air'
       ),

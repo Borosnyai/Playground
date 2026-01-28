@@ -1,6 +1,13 @@
-.card-body {
-    text-align: center;
+.dashboard-grid {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    row-gap: 32px;
 }
-.card {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+.top-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: stretch;
 }
+
