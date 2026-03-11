@@ -34,10 +34,9 @@ export async function get_ports() {
 const sensor_count = 2;
 
 async function init_master(ports){ 
-    for (let i = 0; i<= sensor_count; i++){
+    for (let i = 0; i < sensor_count; i++){
         await wakeup(i.toString());
     };
-    await get_ports();
 }
 
 // get port details:
@@ -47,7 +46,11 @@ export async function get_port_details() {
     console.log(`Folgende ${port_data.length} Sensoren sind angeschlossen:`)
     port_data.forEach(element => {
         console.log(element.productText + " mit ProductId " + element.productId)
+        console.log("Mit dem Messwert: " + element.processInputs)
+        console.log(element.productId + "/" + element.productText + "/" + element.productName + "/" + element.vendorName)
     });
 }
 
-init_master(1);
+init_master(sensor_count - 1);
+
+get_port_details();
