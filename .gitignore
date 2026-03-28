@@ -11,3 +11,6 @@ frontend/.vite/
 # Editor / OS
 .vscode/
 .DS_Store
+
+# Virtual environment for Python
+virt
