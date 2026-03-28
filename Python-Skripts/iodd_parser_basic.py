@@ -4,9 +4,12 @@ from dotenv import load_dotenv
 
 
 parser = IODDParser()
+load_dotenv()
+
+iodd_path = os.getenv("IODD_PATH")
 
 # Parse and resolve in one step
-result = parser.parse_and_resolve("/home/martin/Documents/Diplomarbeit/")
+result = parser.parse_and_resolve(iodd_path + "Balluff-BOS21UUIRP30-20180207-IODD1.1.zip")
 
 print(result.device_name)
 print(result.device_manufacturer)
@@ -25,5 +28,5 @@ for (code, additional_code), error in result.errors.items():
     print(f"Error {code}/{additional_code}: {error.name}")
 
 # Access resolved units
-for unit_code, unit in result.units.items():
-    print(f"Unit {unit_code}: {unit.name} ({unit.abbreviation})")
+# for unit_code, unit in result.units.items():
+#     print(f"Unit {unit_code}: {unit.name} ({unit.abbreviation})")
