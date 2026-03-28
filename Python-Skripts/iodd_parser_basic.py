@@ -10,10 +10,11 @@ load_dotenv()
 
 iodd_path = os.getenv("IODD_PATH")
 
-
+sensor1 = "Balluff-BOSR254KUUIPR10-ADSS-20210628-IODD1.1.zip"
+sensor2 = "Balluff-BOS21UUIRP30-20180207-IODD1.1.zip"
 
 # Parse and resolve in one step
-result = parser.parse_and_resolve(iodd_path + "Balluff-BOSR254KUUIPR10-ADSS-20210628-IODD1.1.zip")
+result = parser.parse_and_resolve(iodd_path + sensor2)
 
 print(result.device_name)
 print(result.device_manufacturer)
