@@ -37,13 +37,17 @@ print(f"Identification menu: {specialist.identification_menu_id}")
 
 
 # Access resolved variables by ID
-for var_id, var in result.variables.items():
-    if hasattr(var.datatype, "single_values"):
-    # if var.index == 157:
-        print(f'Resolved variable has ID "{var_id}" and the name: {var.name} (index={var.index}).')
-        for line in var.datatype.single_values:
-            print(f'Option nr. {line.value} is {line.name}.')
-        print('\n')
+# for var_id, var in result.variables.items():
+#     if hasattr(var.datatype, "single_values"):
+#     # if var.index == 157:
+#         print(f'Resolved variable has ID "{var_id}" and the name: {var.name} (index={var.index}).')
+#         for line in var.datatype.single_values:
+#             print(f'Option nr. {line.value} is {line.name}.')
+#         print('\n')
+
+# Read Resolved IODD:
+for string, variable in result.variables.items():
+    print(f'Key is --{string}-- and variable.datatype is --{variable.datatype}--.')
 
 # Access resolved process data
 for pd_id, pd in result.process_data.items():
