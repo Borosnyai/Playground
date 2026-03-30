@@ -31,7 +31,7 @@ export async function get_ports() {
     }
 }
 
-const sensor_count = 2;
+const sensor_count = 1;
 
 async function init_master(ports){ 
     for (let i = 0; i < sensor_count; i++){

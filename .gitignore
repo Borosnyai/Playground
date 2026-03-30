@@ -17,3 +17,6 @@ virt
 
 # dotenv
 .env
+
+# debug files
+output.txt
