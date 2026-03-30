@@ -1,0 +1,1464 @@
+BOS 21M-UUI-RP30
+Balluff
+Identification menu: ME_Identification_RW
+Key is --V_DirectParameters_1-- and variable.datatype is --ResolvedRecordT(bit_length=128, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=120, name='Reserved', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=112, name='Master Cycle Time', description='Communication: Current communication cycle duration used by the master. This value defines the process data cycle.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=3, bit_offset=104, name='Min Cycle Time', description='Communication: Minimum communication cycle duration supported by the device. This value defines the lowest possible process data cycle.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=4, bit_offset=96, name='M-Sequence Capability', description='Communication: Information on the structure and the supported features of the communication messages.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=5, bit_offset=88, name='IO-Link Revision ID', description='Communication: Identifier for the currently used communication protocol revision.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=6, bit_offset=80, name='Process Data Input Length', description='Communication: Information on width and features of the process input data (Process Data from Device to Master).', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=7, bit_offset=72, name='Process Data Output Length', description='Communication: Information on width of the process output data (Process Data from Master to Device).', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=8, bit_offset=64, name='Vendor ID 1', description='Identification: Highest octet of the Vendor ID. Combined with the parameter Vendor ID 2, this parameter defines the 16-bit value of the unique Vendor ID as assigned by the IO-Link Community.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=9, bit_offset=56, name='Vendor ID 2', description='Identification: Lowest octet of the Vendor ID. Combined with the parameter Vendor ID 1, this parameter defines the 16-bit value of the unique Vendor ID as assigned by the IO-Link Community.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=10, bit_offset=48, name='Device ID 1', description='Identification: Highest octet of the Device ID. Combined with the parameters Device ID 2 and 3, this parameter defines the 24-bit value of the vendor-specific Device ID.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=11, bit_offset=40, name='Device ID 2', description='Identification: Middle octet of the Device ID. Combined with the parameters Device ID 1 and 3, this parameter defines the 24-bit value of the vendor-specific Device ID.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=12, bit_offset=32, name='Device ID 3', description='Identification: Lowest octet of the Device ID. Combined with the parameters Device ID 1 and 2, this parameter defines the 24-bit value of the vendor-specific Device ID.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=13, bit_offset=24, name='Reserved', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=14, bit_offset=16, name='Reserved', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=15, bit_offset=8, name='Reserved', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=16, bit_offset=0, name='System Command', description='Application: Command interface for devices without ISDU support. Validity and execution of commands are not confirmed.', datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=128, name='Device Reset'), ResolvedSingleValue(value=129, name='Application Reset'), ResolvedSingleValue(value=130, name='Restore Factory Settings'), ResolvedSingleValue(value=131, name='Back-to-box')], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=63, name='Reserved'), ResolvedValueRange(lower_value=132, upper_value=159, name='Reserved')]))])--.
+Key is --V_DirectParameters_2-- and variable.datatype is --ResolvedRecordT(bit_length=128, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=120, name='Device-specific Parameter 1', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=112, name='Device-specific Parameter 2', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=3, bit_offset=104, name='Device-specific Parameter 3', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=4, bit_offset=96, name='Device-specific Parameter 4', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=5, bit_offset=88, name='Device-specific Parameter 5', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=6, bit_offset=80, name='Device-specific Parameter 6', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=7, bit_offset=72, name='Device-specific Parameter 7', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=8, bit_offset=64, name='Device-specific Parameter 8', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=9, bit_offset=56, name='Device-specific Parameter 9', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=10, bit_offset=48, name='Device-specific Parameter 10', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=11, bit_offset=40, name='Device-specific Parameter 11', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=12, bit_offset=32, name='Device-specific Parameter 12', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=13, bit_offset=24, name='Device-specific Parameter 13', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=14, bit_offset=16, name='Device-specific Parameter 14', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=15, bit_offset=8, name='Device-specific Parameter 15', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=16, bit_offset=0, name='Device-specific Parameter 16', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[]))])--.
+Key is --V_SystemCommand-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=128, name='Device Reset'), ResolvedSingleValue(value=129, name='Application Reset'), ResolvedSingleValue(value=130, name='Restore Factory Settings'), ResolvedSingleValue(value=131, name='Back-to-box')], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=63, name='Reserved'), ResolvedValueRange(lower_value=132, upper_value=159, name='Reserved')])--.
+Key is --V_DeviceAccessLocks-- and variable.datatype is --ResolvedRecordT(bit_length=16, subindex_access_supported=False, items=[ResolvedRecordItemT(subindex=1, bit_offset=0, name='Parameter Write Access', description="This lock prevents the write access to all read/write parameters of the device except for the parameter 'Device Access Locks'.", datatype=ResolvedBooleanT(single_values=[ResolvedSingleValue(value=True, name='Locked'), ResolvedSingleValue(value=False, name='Unlocked')])), ResolvedRecordItemT(subindex=2, bit_offset=1, name='Data Storage', description='This lock prevents the write access to the device parameters via the data storage mechanism.', datatype=ResolvedBooleanT(single_values=[ResolvedSingleValue(value=True, name='Locked'), ResolvedSingleValue(value=False, name='Unlocked')])), ResolvedRecordItemT(subindex=3, bit_offset=2, name='Local Parameterization', description='This lock prevents the device settings from being changed via local operating elements on the device.', datatype=ResolvedBooleanT(single_values=[ResolvedSingleValue(value=True, name='Locked'), ResolvedSingleValue(value=False, name='Unlocked')])), ResolvedRecordItemT(subindex=4, bit_offset=3, name='Local User Interface', description='This lock prevents the access to the device settings and display via a local user interface. The user interface is disabled.', datatype=ResolvedBooleanT(single_values=[ResolvedSingleValue(value=True, name='Locked'), ResolvedSingleValue(value=False, name='Unlocked')]))])--.
+Key is --V_VendorName-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_VendorText-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_ProductName-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_HardwareRevision-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_FirmwareRevision-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_ProductID-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_ProductText-- and variable.datatype is --ResolvedStringT(fixed_length=64, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_ApplicationSpecificTag-- and variable.datatype is --ResolvedStringT(fixed_length=32, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_DeviceStatus-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Device is OK'), ResolvedSingleValue(value=1, name='Maintenance required'), ResolvedSingleValue(value=2, name='Out of specification'), ResolvedSingleValue(value=3, name='Functional check'), ResolvedSingleValue(value=4, name='Failure')], value_ranges=[])--.
+Key is --V_DetailedDeviceStatus-- and variable.datatype is --ResolvedArrayT(count=64, subindex_access_supported=False, element_datatype=ResolvedOctetStringT(fixed_length=3))--.
+Key is --V_ProcessDataInput-- and variable.datatype is --None--.
+Key is --V_ProcessDataOutput-- and variable.datatype is --None--.
+Key is --V_SerialNumber-- and variable.datatype is --ResolvedStringT(fixed_length=16, encoding=<CharacterEncodingT.UTF_8: 'UTF-8'>)--.
+Key is --V_TeachInChannel-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Default BDC (BDC1)'), ResolvedSingleValue(value=1, name='BDC1')], value_ranges=[])--.
+Key is --V_TeachInStatus-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])--.
+Key is --V_SetPointValueBDC1-- and variable.datatype is --ResolvedRecordT(bit_length=32, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=16, name='SP1', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=4095, name=None)])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='SP2', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=4095, name=None)]))])--.
+Key is --V_SwitchPointConfigBDC1-- and variable.datatype is --ResolvedRecordT(bit_length=32, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=24, name='Switchpoint Logic', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='N.O.'), ResolvedSingleValue(value=1, name='N.C.')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=16, name='Switchpoint Mode', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=1, name='Single Point Mode'), ResolvedSingleValue(value=2, name='Window Mode'), ResolvedSingleValue(value=3, name='Two Point Mode')], value_ranges=[])), ResolvedRecordItemT(subindex=3, bit_offset=0, name='Switchpoint Hysteresis', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=10, name=None)]))])--.
+Key is --V_SensorPrinciple-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Diffuse'), ResolvedSingleValue(value=1, name='Diffuse with background suppression'), ResolvedSingleValue(value=2, name='Retro-reflective'), ResolvedSingleValue(value=3, name='Through-beam emitter'), ResolvedSingleValue(value=4, name='Through-beam receiver')], value_ranges=[])--.
+Key is --V_SwitchCounterSettings-- and variable.datatype is --ResolvedRecordT(bit_length=112, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=104, name='Mode', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='OFF'), ResolvedSingleValue(value=1, name='COUNTER STATIC'), ResolvedSingleValue(value=2, name='COUNTER AUTO'), ResolvedSingleValue(value=3, name='SPEED')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=88, name='Limit', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[ResolvedValueRange(lower_value=1, upper_value=65535, name=None)])), ResolvedRecordItemT(subindex=3, bit_offset=72, name='Reserved', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=4, bit_offset=64, name='Startup Delay', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=5, bit_offset=48, name='Speed Upper Limit High', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=6, bit_offset=32, name='Speed Upper Limit Low', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=7, bit_offset=16, name='Speed Lower Limit High', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=8, bit_offset=0, name='Speed Lower Limit Low', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[]))])--.
+Key is --V_SwitchCounterState-- and variable.datatype is --ResolvedRecordT(bit_length=24, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=16, name='Status', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='off'), ResolvedSingleValue(value=1, name='ok'), ResolvedSingleValue(value=2, name='too low'), ResolvedSingleValue(value=4, name='too high'), ResolvedSingleValue(value=5, name='too high')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='Counter', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[ResolvedValueRange(lower_value=0, upper_value=65535, name=None)]))])--.
+Key is --V_PhysicalSwitchingOutputDelays_OUT1-- and variable.datatype is --ResolvedRecordT(bit_length=40, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=32, name='Function Mode', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Delay'), ResolvedSingleValue(value=1, name='One Shot')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=16, name='(On) Delay Time 1', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=3, bit_offset=0, name='(Off/One Shot) Delay Time 2', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[]))])--.
+Key is --V_PhysicalSwitchingOutputDelays_OUT2-- and variable.datatype is --ResolvedRecordT(bit_length=40, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=32, name='Function Mode', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Delay'), ResolvedSingleValue(value=1, name='One Shot')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=16, name='(On) Delay Time 1', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=3, bit_offset=0, name='(Off/One Shot) Delay Time 2', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[]))])--.
+Key is --V_PhysicalInputDebounce-- and variable.datatype is --ResolvedRecordT(bit_length=32, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=16, name='Physical Input Debounce Time for Pin4', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='Physical Input Debounce Time for Pin2', description=None, datatype=ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[]))])--.
+Key is --V_PinFunctionSelection-- and variable.datatype is --ResolvedRecordT(bit_length=16, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=8, name='Pin Function Selection for Pin4', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Sensor Output')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='Pin Function Selection for Pin2', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=0, name='Sensor Output'), ResolvedSingleValue(value=1, name='Reset Input')], value_ranges=[]))])--.
+Key is --V_LEDPower-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[], value_ranges=[])--.
+Key is --V_Stresslevel-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=1, name='Low stress level: everything OK, a long service life can be expected.'), ResolvedSingleValue(value=2, name='Medium stress level: thermal load not optimum, accelerated aging.'), ResolvedSingleValue(value=3, name='High stress level: Poor internal thermal state, service life at serious risk.')], value_ranges=[])--.
+Key is --V_Lifetime-- and variable.datatype is --ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=1, name='Long service life'), ResolvedSingleValue(value=2, name='Reduced service life, replace sensor during next maintenance cycle'), ResolvedSingleValue(value=3, name='End of service life, replace sensor immediately')], value_ranges=[])--.
+Key is --V_OperatingHours-- and variable.datatype is --ResolvedRecordT(bit_length=64, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=32, name='Operating Hours', description=None, datatype=ResolvedUIntegerT(bit_length=32, single_values=[], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='Operating Hours Maintenance', description=None, datatype=ResolvedUIntegerT(bit_length=32, single_values=[], value_ranges=[]))])--.
+Key is --V_OutputType-- and variable.datatype is --ResolvedRecordT(bit_length=16, subindex_access_supported=True, items=[ResolvedRecordItemT(subindex=1, bit_offset=8, name='Output Type OUT1', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=1, name='PNP'), ResolvedSingleValue(value=2, name='NPN'), ResolvedSingleValue(value=3, name='Push-Pull')], value_ranges=[])), ResolvedRecordItemT(subindex=2, bit_offset=0, name='Output Type OUT2', description=None, datatype=ResolvedUIntegerT(bit_length=8, single_values=[ResolvedSingleValue(value=1, name='PNP'), ResolvedSingleValue(value=2, name='NPN'), ResolvedSingleValue(value=3, name='Push-Pull')], value_ranges=[]))])--.
+Key is --V_ExcessGain-- and variable.datatype is --ResolvedUIntegerT(bit_length=16, single_values=[], value_ranges=[])--.
+Input: Process Data Inputs represented in "24" bits
+The id is: V_PD, whereas conditioin value is None
+{'V_ApplicationSpecificTag': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                              'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                           'fixed_length': 32},
+                              'default_value': '',
+                              'description': 'Possibility to mark a device '
+                                             'with user- or '
+                                             'application-specific '
+                                             'information.',
+                              'dynamic': False,
+                              'excluded_from_data_storage': False,
+                              'fixed_length_restriction': 32,
+                              'id': 'V_ApplicationSpecificTag',
+                              'index': 24,
+                              'modifies_other_variables': False,
+                              'name': 'Application-specific Tag',
+                              'record_item_info': []},
+ 'V_DetailedDeviceStatus': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                            'datatype': {'count': 64,
+                                         'element_datatype': {'fixed_length': 3},
+                                         'subindex_access_supported': False},
+                            'default_value': None,
+                            'description': 'List of all currently pending '
+                                           'events in the device.',
+                            'dynamic': True,
+                            'excluded_from_data_storage': False,
+                            'fixed_length_restriction': 3,
+                            'id': 'V_DetailedDeviceStatus',
+                            'index': 37,
+                            'modifies_other_variables': False,
+                            'name': 'Detailed Device Status',
+                            'record_item_info': []},
+ 'V_DeviceAccessLocks': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                         'datatype': {'bit_length': 16,
+                                      'items': [{'bit_offset': 0,
+                                                 'datatype': {'single_values': [{'name': 'Locked',
+                                                                                 'value': True},
+                                                                                {'name': 'Unlocked',
+                                                                                 'value': False}]},
+                                                 'description': 'This lock '
+                                                                'prevents the '
+                                                                'write access '
+                                                                'to all '
+                                                                'read/write '
+                                                                'parameters of '
+                                                                'the device '
+                                                                'except for '
+                                                                'the parameter '
+                                                                "'Device "
+                                                                'Access '
+                                                                "Locks'.",
+                                                 'name': 'Parameter Write '
+                                                         'Access',
+                                                 'subindex': 1},
+                                                {'bit_offset': 1,
+                                                 'datatype': {'single_values': [{'name': 'Locked',
+                                                                                 'value': True},
+                                                                                {'name': 'Unlocked',
+                                                                                 'value': False}]},
+                                                 'description': 'This lock '
+                                                                'prevents the '
+                                                                'write access '
+                                                                'to the device '
+                                                                'parameters '
+                                                                'via the data '
+                                                                'storage '
+                                                                'mechanism.',
+                                                 'name': 'Data Storage',
+                                                 'subindex': 2},
+                                                {'bit_offset': 2,
+                                                 'datatype': {'single_values': [{'name': 'Locked',
+                                                                                 'value': True},
+                                                                                {'name': 'Unlocked',
+                                                                                 'value': False}]},
+                                                 'description': 'This lock '
+                                                                'prevents the '
+                                                                'device '
+                                                                'settings from '
+                                                                'being changed '
+                                                                'via local '
+                                                                'operating '
+                                                                'elements on '
+                                                                'the device.',
+                                                 'name': 'Local '
+                                                         'Parameterization',
+                                                 'subindex': 3},
+                                                {'bit_offset': 3,
+                                                 'datatype': {'single_values': [{'name': 'Locked',
+                                                                                 'value': True},
+                                                                                {'name': 'Unlocked',
+                                                                                 'value': False}]},
+                                                 'description': 'This lock '
+                                                                'prevents the '
+                                                                'access to the '
+                                                                'device '
+                                                                'settings and '
+                                                                'display via a '
+                                                                'local user '
+                                                                'interface. '
+                                                                'The user '
+                                                                'interface is '
+                                                                'disabled.',
+                                                 'name': 'Local User Interface',
+                                                 'subindex': 4}],
+                                      'subindex_access_supported': False},
+                         'default_value': None,
+                         'description': 'The access to the device parameters '
+                                        'can be restricted by setting '
+                                        'appropriate flags within this '
+                                        'parameter.',
+                         'dynamic': False,
+                         'excluded_from_data_storage': False,
+                         'fixed_length_restriction': None,
+                         'id': 'V_DeviceAccessLocks',
+                         'index': 12,
+                         'modifies_other_variables': False,
+                         'name': 'Device Access Locks',
+                         'record_item_info': []},
+ 'V_DeviceStatus': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                    'datatype': {'bit_length': 8,
+                                 'single_values': [{'name': 'Device is OK',
+                                                    'value': 0},
+                                                   {'name': 'Maintenance '
+                                                            'required',
+                                                    'value': 1},
+                                                   {'name': 'Out of '
+                                                            'specification',
+                                                    'value': 2},
+                                                   {'name': 'Functional check',
+                                                    'value': 3},
+                                                   {'name': 'Failure',
+                                                    'value': 4}],
+                                 'value_ranges': []},
+                    'default_value': '0',
+                    'description': 'Indicator for the current device condition '
+                                   'and diagnosis state.',
+                    'dynamic': True,
+                    'excluded_from_data_storage': False,
+                    'fixed_length_restriction': None,
+                    'id': 'V_DeviceStatus',
+                    'index': 36,
+                    'modifies_other_variables': False,
+                    'name': 'Device Status',
+                    'record_item_info': []},
+ 'V_DirectParameters_1': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                          'datatype': {'bit_length': 128,
+                                       'items': [{'bit_offset': 120,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Reserved',
+                                                  'subindex': 1},
+                                                 {'bit_offset': 112,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Current '
+                                                                 'communication '
+                                                                 'cycle '
+                                                                 'duration '
+                                                                 'used by the '
+                                                                 'master. This '
+                                                                 'value '
+                                                                 'defines the '
+                                                                 'process data '
+                                                                 'cycle.',
+                                                  'name': 'Master Cycle Time',
+                                                  'subindex': 2},
+                                                 {'bit_offset': 104,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Minimum '
+                                                                 'communication '
+                                                                 'cycle '
+                                                                 'duration '
+                                                                 'supported by '
+                                                                 'the device. '
+                                                                 'This value '
+                                                                 'defines the '
+                                                                 'lowest '
+                                                                 'possible '
+                                                                 'process data '
+                                                                 'cycle.',
+                                                  'name': 'Min Cycle Time',
+                                                  'subindex': 3},
+                                                 {'bit_offset': 96,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Information '
+                                                                 'on the '
+                                                                 'structure '
+                                                                 'and the '
+                                                                 'supported '
+                                                                 'features of '
+                                                                 'the '
+                                                                 'communication '
+                                                                 'messages.',
+                                                  'name': 'M-Sequence '
+                                                          'Capability',
+                                                  'subindex': 4},
+                                                 {'bit_offset': 88,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Identifier '
+                                                                 'for the '
+                                                                 'currently '
+                                                                 'used '
+                                                                 'communication '
+                                                                 'protocol '
+                                                                 'revision.',
+                                                  'name': 'IO-Link Revision ID',
+                                                  'subindex': 5},
+                                                 {'bit_offset': 80,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Information '
+                                                                 'on width and '
+                                                                 'features of '
+                                                                 'the process '
+                                                                 'input data '
+                                                                 '(Process '
+                                                                 'Data from '
+                                                                 'Device to '
+                                                                 'Master).',
+                                                  'name': 'Process Data Input '
+                                                          'Length',
+                                                  'subindex': 6},
+                                                 {'bit_offset': 72,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Communication: '
+                                                                 'Information '
+                                                                 'on width of '
+                                                                 'the process '
+                                                                 'output data '
+                                                                 '(Process '
+                                                                 'Data from '
+                                                                 'Master to '
+                                                                 'Device).',
+                                                  'name': 'Process Data Output '
+                                                          'Length',
+                                                  'subindex': 7},
+                                                 {'bit_offset': 64,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Identification: '
+                                                                 'Highest '
+                                                                 'octet of the '
+                                                                 'Vendor ID. '
+                                                                 'Combined '
+                                                                 'with the '
+                                                                 'parameter '
+                                                                 'Vendor ID 2, '
+                                                                 'this '
+                                                                 'parameter '
+                                                                 'defines the '
+                                                                 '16-bit value '
+                                                                 'of the '
+                                                                 'unique '
+                                                                 'Vendor ID as '
+                                                                 'assigned by '
+                                                                 'the IO-Link '
+                                                                 'Community.',
+                                                  'name': 'Vendor ID 1',
+                                                  'subindex': 8},
+                                                 {'bit_offset': 56,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Identification: '
+                                                                 'Lowest octet '
+                                                                 'of the '
+                                                                 'Vendor ID. '
+                                                                 'Combined '
+                                                                 'with the '
+                                                                 'parameter '
+                                                                 'Vendor ID 1, '
+                                                                 'this '
+                                                                 'parameter '
+                                                                 'defines the '
+                                                                 '16-bit value '
+                                                                 'of the '
+                                                                 'unique '
+                                                                 'Vendor ID as '
+                                                                 'assigned by '
+                                                                 'the IO-Link '
+                                                                 'Community.',
+                                                  'name': 'Vendor ID 2',
+                                                  'subindex': 9},
+                                                 {'bit_offset': 48,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Identification: '
+                                                                 'Highest '
+                                                                 'octet of the '
+                                                                 'Device ID. '
+                                                                 'Combined '
+                                                                 'with the '
+                                                                 'parameters '
+                                                                 'Device ID 2 '
+                                                                 'and 3, this '
+                                                                 'parameter '
+                                                                 'defines the '
+                                                                 '24-bit value '
+                                                                 'of the '
+                                                                 'vendor-specific '
+                                                                 'Device ID.',
+                                                  'name': 'Device ID 1',
+                                                  'subindex': 10},
+                                                 {'bit_offset': 40,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Identification: '
+                                                                 'Middle octet '
+                                                                 'of the '
+                                                                 'Device ID. '
+                                                                 'Combined '
+                                                                 'with the '
+                                                                 'parameters '
+                                                                 'Device ID 1 '
+                                                                 'and 3, this '
+                                                                 'parameter '
+                                                                 'defines the '
+                                                                 '24-bit value '
+                                                                 'of the '
+                                                                 'vendor-specific '
+                                                                 'Device ID.',
+                                                  'name': 'Device ID 2',
+                                                  'subindex': 11},
+                                                 {'bit_offset': 32,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': 'Identification: '
+                                                                 'Lowest octet '
+                                                                 'of the '
+                                                                 'Device ID. '
+                                                                 'Combined '
+                                                                 'with the '
+                                                                 'parameters '
+                                                                 'Device ID 1 '
+                                                                 'and 2, this '
+                                                                 'parameter '
+                                                                 'defines the '
+                                                                 '24-bit value '
+                                                                 'of the '
+                                                                 'vendor-specific '
+                                                                 'Device ID.',
+                                                  'name': 'Device ID 3',
+                                                  'subindex': 12},
+                                                 {'bit_offset': 24,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Reserved',
+                                                  'subindex': 13},
+                                                 {'bit_offset': 16,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Reserved',
+                                                  'subindex': 14},
+                                                 {'bit_offset': 8,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Reserved',
+                                                  'subindex': 15},
+                                                 {'bit_offset': 0,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [{'name': 'Device '
+                                                                                          'Reset',
+                                                                                  'value': 128},
+                                                                                 {'name': 'Application '
+                                                                                          'Reset',
+                                                                                  'value': 129},
+                                                                                 {'name': 'Restore '
+                                                                                          'Factory '
+                                                                                          'Settings',
+                                                                                  'value': 130},
+                                                                                 {'name': 'Back-to-box',
+                                                                                  'value': 131}],
+                                                               'value_ranges': [{'lower_value': 0,
+                                                                                 'name': 'Reserved',
+                                                                                 'upper_value': 63},
+                                                                                {'lower_value': 132,
+                                                                                 'name': 'Reserved',
+                                                                                 'upper_value': 159}]},
+                                                  'description': 'Application: '
+                                                                 'Command '
+                                                                 'interface '
+                                                                 'for devices '
+                                                                 'without ISDU '
+                                                                 'support. '
+                                                                 'Validity and '
+                                                                 'execution of '
+                                                                 'commands are '
+                                                                 'not '
+                                                                 'confirmed.',
+                                                  'name': 'System Command',
+                                                  'subindex': 16}],
+                                       'subindex_access_supported': True},
+                          'default_value': None,
+                          'description': 'Comprises the required parameters '
+                                         'defining the communication '
+                                         'characteristics and identifiers for '
+                                         'device validation.',
+                          'dynamic': False,
+                          'excluded_from_data_storage': False,
+                          'fixed_length_restriction': None,
+                          'id': 'V_DirectParameters_1',
+                          'index': 0,
+                          'modifies_other_variables': False,
+                          'name': 'Direct Parameters - Page 1',
+                          'record_item_info': [{'default_value': '17',
+                                                'excluded_from_data_storage': False,
+                                                'modifies_other_variables': False,
+                                                'subindex': 5},
+                                               {'default_value': None,
+                                                'excluded_from_data_storage': False,
+                                                'modifies_other_variables': True,
+                                                'subindex': 16}]},
+ 'V_DirectParameters_2': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                          'datatype': {'bit_length': 128,
+                                       'items': [{'bit_offset': 120,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 1',
+                                                  'subindex': 1},
+                                                 {'bit_offset': 112,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 2',
+                                                  'subindex': 2},
+                                                 {'bit_offset': 104,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 3',
+                                                  'subindex': 3},
+                                                 {'bit_offset': 96,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 4',
+                                                  'subindex': 4},
+                                                 {'bit_offset': 88,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 5',
+                                                  'subindex': 5},
+                                                 {'bit_offset': 80,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 6',
+                                                  'subindex': 6},
+                                                 {'bit_offset': 72,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 7',
+                                                  'subindex': 7},
+                                                 {'bit_offset': 64,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 8',
+                                                  'subindex': 8},
+                                                 {'bit_offset': 56,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 9',
+                                                  'subindex': 9},
+                                                 {'bit_offset': 48,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 10',
+                                                  'subindex': 10},
+                                                 {'bit_offset': 40,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 11',
+                                                  'subindex': 11},
+                                                 {'bit_offset': 32,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 12',
+                                                  'subindex': 12},
+                                                 {'bit_offset': 24,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 13',
+                                                  'subindex': 13},
+                                                 {'bit_offset': 16,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 14',
+                                                  'subindex': 14},
+                                                 {'bit_offset': 8,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 15',
+                                                  'subindex': 15},
+                                                 {'bit_offset': 0,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Device-specific '
+                                                          'Parameter 16',
+                                                  'subindex': 16}],
+                                       'subindex_access_supported': True},
+                          'default_value': None,
+                          'description': 'A set of parameters for devices '
+                                         'without ISDU support.',
+                          'dynamic': False,
+                          'excluded_from_data_storage': False,
+                          'fixed_length_restriction': None,
+                          'id': 'V_DirectParameters_2',
+                          'index': 1,
+                          'modifies_other_variables': False,
+                          'name': 'Direct Parameters - Page 2',
+                          'record_item_info': []},
+ 'V_ExcessGain': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                  'datatype': {'bit_length': 16,
+                               'single_values': [],
+                               'value_ranges': []},
+                  'default_value': None,
+                  'description': 'Excess Gain',
+                  'dynamic': True,
+                  'excluded_from_data_storage': False,
+                  'fixed_length_restriction': None,
+                  'id': 'V_ExcessGain',
+                  'index': 189,
+                  'modifies_other_variables': False,
+                  'name': 'Excess Gain',
+                  'record_item_info': []},
+ 'V_FirmwareRevision': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                        'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                     'fixed_length': 64},
+                        'default_value': None,
+                        'description': 'Unique, vendor-specific identifier of '
+                                       'the firmware revision of the '
+                                       'individual device.',
+                        'dynamic': False,
+                        'excluded_from_data_storage': False,
+                        'fixed_length_restriction': None,
+                        'id': 'V_FirmwareRevision',
+                        'index': 23,
+                        'modifies_other_variables': False,
+                        'name': 'Firmware Revision',
+                        'record_item_info': []},
+ 'V_HardwareRevision': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                        'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                     'fixed_length': 64},
+                        'default_value': None,
+                        'description': 'Unique, vendor-specific identifier of '
+                                       'the hardware revision of the '
+                                       'individual device.',
+                        'dynamic': False,
+                        'excluded_from_data_storage': False,
+                        'fixed_length_restriction': None,
+                        'id': 'V_HardwareRevision',
+                        'index': 22,
+                        'modifies_other_variables': False,
+                        'name': 'Hardware Revision',
+                        'record_item_info': []},
+ 'V_LEDPower': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                'datatype': {'bit_length': 8,
+                             'single_values': [],
+                             'value_ranges': []},
+                'default_value': None,
+                'description': 'LEDPower',
+                'dynamic': True,
+                'excluded_from_data_storage': False,
+                'fixed_length_restriction': None,
+                'id': 'V_LEDPower',
+                'index': 190,
+                'modifies_other_variables': False,
+                'name': 'LED Power',
+                'record_item_info': []},
+ 'V_Lifetime': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                'datatype': {'bit_length': 8,
+                             'single_values': [{'name': 'Long service life',
+                                                'value': 1},
+                                               {'name': 'Reduced service life, '
+                                                        'replace sensor during '
+                                                        'next maintenance '
+                                                        'cycle',
+                                                'value': 2},
+                                               {'name': 'End of service life, '
+                                                        'replace sensor '
+                                                        'immediately',
+                                                'value': 3}],
+                             'value_ranges': []},
+                'default_value': None,
+                'description': 'Expected Life Time LED coded',
+                'dynamic': True,
+                'excluded_from_data_storage': False,
+                'fixed_length_restriction': None,
+                'id': 'V_Lifetime',
+                'index': 1281,
+                'modifies_other_variables': False,
+                'name': 'Lifetime',
+                'record_item_info': []},
+ 'V_OperatingHours': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                      'datatype': {'bit_length': 64,
+                                   'items': [{'bit_offset': 32,
+                                              'datatype': {'bit_length': 32,
+                                                           'single_values': [],
+                                                           'value_ranges': []},
+                                              'description': None,
+                                              'name': 'Operating Hours',
+                                              'subindex': 1},
+                                             {'bit_offset': 0,
+                                              'datatype': {'bit_length': 32,
+                                                           'single_values': [],
+                                                           'value_ranges': []},
+                                              'description': None,
+                                              'name': 'Operating Hours '
+                                                      'Maintenance',
+                                              'subindex': 2}],
+                                   'subindex_access_supported': True},
+                      'default_value': None,
+                      'description': 'Operating Hours',
+                      'dynamic': True,
+                      'excluded_from_data_storage': False,
+                      'fixed_length_restriction': None,
+                      'id': 'V_OperatingHours',
+                      'index': 87,
+                      'modifies_other_variables': False,
+                      'name': 'Operating Hours',
+                      'record_item_info': []},
+ 'V_OutputType': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                  'datatype': {'bit_length': 16,
+                               'items': [{'bit_offset': 8,
+                                          'datatype': {'bit_length': 8,
+                                                       'single_values': [{'name': 'PNP',
+                                                                          'value': 1},
+                                                                         {'name': 'NPN',
+                                                                          'value': 2},
+                                                                         {'name': 'Push-Pull',
+                                                                          'value': 3}],
+                                                       'value_ranges': []},
+                                          'description': None,
+                                          'name': 'Output Type OUT1',
+                                          'subindex': 1},
+                                         {'bit_offset': 0,
+                                          'datatype': {'bit_length': 8,
+                                                       'single_values': [{'name': 'PNP',
+                                                                          'value': 1},
+                                                                         {'name': 'NPN',
+                                                                          'value': 2},
+                                                                         {'name': 'Push-Pull',
+                                                                          'value': 3}],
+                                                       'value_ranges': []},
+                                          'description': None,
+                                          'name': 'Output Type OUT2',
+                                          'subindex': 2}],
+                               'subindex_access_supported': True},
+                  'default_value': None,
+                  'description': 'Output Type',
+                  'dynamic': False,
+                  'excluded_from_data_storage': False,
+                  'fixed_length_restriction': None,
+                  'id': 'V_OutputType',
+                  'index': 180,
+                  'modifies_other_variables': False,
+                  'name': 'Output Type',
+                  'record_item_info': [{'default_value': '1',
+                                        'excluded_from_data_storage': False,
+                                        'modifies_other_variables': False,
+                                        'subindex': 1},
+                                       {'default_value': '1',
+                                        'excluded_from_data_storage': False,
+                                        'modifies_other_variables': False,
+                                        'subindex': 2}]},
+ 'V_PhysicalInputDebounce': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                             'datatype': {'bit_length': 32,
+                                          'items': [{'bit_offset': 16,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Physical Input '
+                                                             'Debounce Time '
+                                                             'for Pin4',
+                                                     'subindex': 1},
+                                                    {'bit_offset': 0,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Physical Input '
+                                                             'Debounce Time '
+                                                             'for Pin2',
+                                                     'subindex': 2}],
+                                          'subindex_access_supported': True},
+                             'default_value': None,
+                             'description': None,
+                             'dynamic': False,
+                             'excluded_from_data_storage': False,
+                             'fixed_length_restriction': None,
+                             'id': 'V_PhysicalInputDebounce',
+                             'index': 186,
+                             'modifies_other_variables': False,
+                             'name': 'Physical Input Debounce',
+                             'record_item_info': [{'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 1},
+                                                  {'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 2}]},
+ 'V_PhysicalSwitchingOutputDelays_OUT1': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                                          'datatype': {'bit_length': 40,
+                                                       'items': [{'bit_offset': 32,
+                                                                  'datatype': {'bit_length': 8,
+                                                                               'single_values': [{'name': 'Delay',
+                                                                                                  'value': 0},
+                                                                                                 {'name': 'One '
+                                                                                                          'Shot',
+                                                                                                  'value': 1}],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': 'Function '
+                                                                          'Mode',
+                                                                  'subindex': 1},
+                                                                 {'bit_offset': 16,
+                                                                  'datatype': {'bit_length': 16,
+                                                                               'single_values': [],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': '(On) '
+                                                                          'Delay '
+                                                                          'Time '
+                                                                          '1',
+                                                                  'subindex': 2},
+                                                                 {'bit_offset': 0,
+                                                                  'datatype': {'bit_length': 16,
+                                                                               'single_values': [],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': '(Off/One '
+                                                                          'Shot) '
+                                                                          'Delay '
+                                                                          'Time '
+                                                                          '2',
+                                                                  'subindex': 3}],
+                                                       'subindex_access_supported': True},
+                                          'default_value': None,
+                                          'description': None,
+                                          'dynamic': False,
+                                          'excluded_from_data_storage': False,
+                                          'fixed_length_restriction': None,
+                                          'id': 'V_PhysicalSwitchingOutputDelays_OUT1',
+                                          'index': 184,
+                                          'modifies_other_variables': False,
+                                          'name': 'Physical Switching Output '
+                                                  'Delays for OUT1',
+                                          'record_item_info': [{'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 1},
+                                                               {'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 2},
+                                                               {'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 3}]},
+ 'V_PhysicalSwitchingOutputDelays_OUT2': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                                          'datatype': {'bit_length': 40,
+                                                       'items': [{'bit_offset': 32,
+                                                                  'datatype': {'bit_length': 8,
+                                                                               'single_values': [{'name': 'Delay',
+                                                                                                  'value': 0},
+                                                                                                 {'name': 'One '
+                                                                                                          'Shot',
+                                                                                                  'value': 1}],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': 'Function '
+                                                                          'Mode',
+                                                                  'subindex': 1},
+                                                                 {'bit_offset': 16,
+                                                                  'datatype': {'bit_length': 16,
+                                                                               'single_values': [],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': '(On) '
+                                                                          'Delay '
+                                                                          'Time '
+                                                                          '1',
+                                                                  'subindex': 2},
+                                                                 {'bit_offset': 0,
+                                                                  'datatype': {'bit_length': 16,
+                                                                               'single_values': [],
+                                                                               'value_ranges': []},
+                                                                  'description': None,
+                                                                  'name': '(Off/One '
+                                                                          'Shot) '
+                                                                          'Delay '
+                                                                          'Time '
+                                                                          '2',
+                                                                  'subindex': 3}],
+                                                       'subindex_access_supported': True},
+                                          'default_value': None,
+                                          'description': None,
+                                          'dynamic': False,
+                                          'excluded_from_data_storage': False,
+                                          'fixed_length_restriction': None,
+                                          'id': 'V_PhysicalSwitchingOutputDelays_OUT2',
+                                          'index': 185,
+                                          'modifies_other_variables': False,
+                                          'name': 'Physical Switching Output '
+                                                  'Delays for OUT2',
+                                          'record_item_info': [{'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 1},
+                                                               {'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 2},
+                                                               {'default_value': '0',
+                                                                'excluded_from_data_storage': False,
+                                                                'modifies_other_variables': False,
+                                                                'subindex': 3}]},
+ 'V_PinFunctionSelection': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                            'datatype': {'bit_length': 16,
+                                         'items': [{'bit_offset': 8,
+                                                    'datatype': {'bit_length': 8,
+                                                                 'single_values': [{'name': 'Sensor '
+                                                                                            'Output',
+                                                                                    'value': 0}],
+                                                                 'value_ranges': []},
+                                                    'description': None,
+                                                    'name': 'Pin Function '
+                                                            'Selection for '
+                                                            'Pin4',
+                                                    'subindex': 1},
+                                                   {'bit_offset': 0,
+                                                    'datatype': {'bit_length': 8,
+                                                                 'single_values': [{'name': 'Sensor '
+                                                                                            'Output',
+                                                                                    'value': 0},
+                                                                                   {'name': 'Reset '
+                                                                                            'Input',
+                                                                                    'value': 1}],
+                                                                 'value_ranges': []},
+                                                    'description': None,
+                                                    'name': 'Pin Function '
+                                                            'Selection for '
+                                                            'Pin2',
+                                                    'subindex': 2}],
+                                         'subindex_access_supported': True},
+                            'default_value': None,
+                            'description': 'Selection of pin functionality',
+                            'dynamic': False,
+                            'excluded_from_data_storage': False,
+                            'fixed_length_restriction': None,
+                            'id': 'V_PinFunctionSelection',
+                            'index': 188,
+                            'modifies_other_variables': False,
+                            'name': 'Pin Function Selection',
+                            'record_item_info': [{'default_value': '0',
+                                                  'excluded_from_data_storage': False,
+                                                  'modifies_other_variables': False,
+                                                  'subindex': 1},
+                                                 {'default_value': '0',
+                                                  'excluded_from_data_storage': False,
+                                                  'modifies_other_variables': False,
+                                                  'subindex': 2}]},
+ 'V_ProcessDataInput': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                        'datatype': None,
+                        'default_value': None,
+                        'description': 'Last valid process input data of the '
+                                       'device.',
+                        'dynamic': True,
+                        'excluded_from_data_storage': False,
+                        'fixed_length_restriction': None,
+                        'id': 'V_ProcessDataInput',
+                        'index': 40,
+                        'modifies_other_variables': False,
+                        'name': 'PD Input',
+                        'record_item_info': []},
+ 'V_ProcessDataOutput': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                         'datatype': None,
+                         'default_value': None,
+                         'description': 'Last valid process output data '
+                                        'written to the device.',
+                         'dynamic': True,
+                         'excluded_from_data_storage': False,
+                         'fixed_length_restriction': None,
+                         'id': 'V_ProcessDataOutput',
+                         'index': 41,
+                         'modifies_other_variables': False,
+                         'name': 'PD Output',
+                         'record_item_info': []},
+ 'V_ProductID': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                 'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                              'fixed_length': 64},
+                 'default_value': None,
+                 'description': 'Vendor-specific product or type '
+                                'identification (e.g., item number or model '
+                                'number).',
+                 'dynamic': False,
+                 'excluded_from_data_storage': False,
+                 'fixed_length_restriction': None,
+                 'id': 'V_ProductID',
+                 'index': 19,
+                 'modifies_other_variables': False,
+                 'name': 'Product ID',
+                 'record_item_info': []},
+ 'V_ProductName': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                   'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                'fixed_length': 64},
+                   'default_value': None,
+                   'description': 'Complete product name.',
+                   'dynamic': False,
+                   'excluded_from_data_storage': False,
+                   'fixed_length_restriction': None,
+                   'id': 'V_ProductName',
+                   'index': 18,
+                   'modifies_other_variables': False,
+                   'name': 'Product Name',
+                   'record_item_info': []},
+ 'V_ProductText': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                   'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                'fixed_length': 64},
+                   'default_value': None,
+                   'description': 'Additional product information for the '
+                                  'device.',
+                   'dynamic': False,
+                   'excluded_from_data_storage': False,
+                   'fixed_length_restriction': None,
+                   'id': 'V_ProductText',
+                   'index': 20,
+                   'modifies_other_variables': False,
+                   'name': 'Product Text',
+                   'record_item_info': []},
+ 'V_SensorPrinciple': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                       'datatype': {'bit_length': 8,
+                                    'single_values': [{'name': 'Diffuse',
+                                                       'value': 0},
+                                                      {'name': 'Diffuse with '
+                                                               'background '
+                                                               'suppression',
+                                                       'value': 1},
+                                                      {'name': 'Retro-reflective',
+                                                       'value': 2},
+                                                      {'name': 'Through-beam '
+                                                               'emitter',
+                                                       'value': 3},
+                                                      {'name': 'Through-beam '
+                                                               'receiver',
+                                                       'value': 4}],
+                                    'value_ranges': []},
+                       'default_value': '0',
+                       'description': None,
+                       'dynamic': False,
+                       'excluded_from_data_storage': False,
+                       'fixed_length_restriction': None,
+                       'id': 'V_SensorPrinciple',
+                       'index': 187,
+                       'modifies_other_variables': False,
+                       'name': 'SensorPrinciple',
+                       'record_item_info': []},
+ 'V_SerialNumber': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                    'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                                 'fixed_length': 16},
+                    'default_value': None,
+                    'description': 'Unique, vendor-specific identifier of the '
+                                   'individual device.',
+                    'dynamic': False,
+                    'excluded_from_data_storage': False,
+                    'fixed_length_restriction': 13,
+                    'id': 'V_SerialNumber',
+                    'index': 21,
+                    'modifies_other_variables': False,
+                    'name': 'Serial Number',
+                    'record_item_info': []},
+ 'V_SetPointValueBDC1': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                         'datatype': {'bit_length': 32,
+                                      'items': [{'bit_offset': 16,
+                                                 'datatype': {'bit_length': 16,
+                                                              'single_values': [],
+                                                              'value_ranges': [{'lower_value': 0,
+                                                                                'name': None,
+                                                                                'upper_value': 4095}]},
+                                                 'description': None,
+                                                 'name': 'SP1',
+                                                 'subindex': 1},
+                                                {'bit_offset': 0,
+                                                 'datatype': {'bit_length': 16,
+                                                              'single_values': [],
+                                                              'value_ranges': [{'lower_value': 0,
+                                                                                'name': None,
+                                                                                'upper_value': 4095}]},
+                                                 'description': None,
+                                                 'name': 'SP2',
+                                                 'subindex': 2}],
+                                      'subindex_access_supported': True},
+                         'default_value': None,
+                         'description': 'BDC switching threshold values ',
+                         'dynamic': False,
+                         'excluded_from_data_storage': True,
+                         'fixed_length_restriction': None,
+                         'id': 'V_SetPointValueBDC1',
+                         'index': 60,
+                         'modifies_other_variables': False,
+                         'name': 'Setpoint values BDC1',
+                         'record_item_info': [{'default_value': '4095',
+                                               'excluded_from_data_storage': False,
+                                               'modifies_other_variables': False,
+                                               'subindex': 1},
+                                              {'default_value': '4095',
+                                               'excluded_from_data_storage': False,
+                                               'modifies_other_variables': False,
+                                               'subindex': 2}]},
+ 'V_Stresslevel': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                   'datatype': {'bit_length': 8,
+                                'single_values': [{'name': 'Low stress level: '
+                                                           'everything OK, a '
+                                                           'long service life '
+                                                           'can be expected.',
+                                                   'value': 1},
+                                                  {'name': 'Medium stress '
+                                                           'level: thermal '
+                                                           'load not optimum, '
+                                                           'accelerated aging.',
+                                                   'value': 2},
+                                                  {'name': 'High stress level: '
+                                                           'Poor internal '
+                                                           'thermal state, '
+                                                           'service life at '
+                                                           'serious risk.',
+                                                   'value': 3}],
+                                'value_ranges': []},
+                   'default_value': None,
+                   'description': 'Stresslevel LED coded',
+                   'dynamic': True,
+                   'excluded_from_data_storage': False,
+                   'fixed_length_restriction': None,
+                   'id': 'V_Stresslevel',
+                   'index': 1280,
+                   'modifies_other_variables': False,
+                   'name': 'Stresslevel',
+                   'record_item_info': []},
+ 'V_SwitchCounterSettings': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                             'datatype': {'bit_length': 112,
+                                          'items': [{'bit_offset': 104,
+                                                     'datatype': {'bit_length': 8,
+                                                                  'single_values': [{'name': 'OFF',
+                                                                                     'value': 0},
+                                                                                    {'name': 'COUNTER '
+                                                                                             'STATIC',
+                                                                                     'value': 1},
+                                                                                    {'name': 'COUNTER '
+                                                                                             'AUTO',
+                                                                                     'value': 2},
+                                                                                    {'name': 'SPEED',
+                                                                                     'value': 3}],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Mode',
+                                                     'subindex': 1},
+                                                    {'bit_offset': 88,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': [{'lower_value': 1,
+                                                                                    'name': None,
+                                                                                    'upper_value': 65535}]},
+                                                     'description': None,
+                                                     'name': 'Limit',
+                                                     'subindex': 2},
+                                                    {'bit_offset': 72,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Reserved',
+                                                     'subindex': 3},
+                                                    {'bit_offset': 64,
+                                                     'datatype': {'bit_length': 8,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Startup Delay',
+                                                     'subindex': 4},
+                                                    {'bit_offset': 48,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Speed Upper '
+                                                             'Limit High',
+                                                     'subindex': 5},
+                                                    {'bit_offset': 32,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Speed Upper '
+                                                             'Limit Low',
+                                                     'subindex': 6},
+                                                    {'bit_offset': 16,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Speed Lower '
+                                                             'Limit High',
+                                                     'subindex': 7},
+                                                    {'bit_offset': 0,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Speed Lower '
+                                                             'Limit Low',
+                                                     'subindex': 8}],
+                                          'subindex_access_supported': True},
+                             'default_value': None,
+                             'description': None,
+                             'dynamic': False,
+                             'excluded_from_data_storage': False,
+                             'fixed_length_restriction': None,
+                             'id': 'V_SwitchCounterSettings',
+                             'index': 182,
+                             'modifies_other_variables': False,
+                             'name': 'Switch Counter Settings',
+                             'record_item_info': [{'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 1},
+                                                  {'default_value': '1',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 2},
+                                                  {'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 3},
+                                                  {'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 4},
+                                                  {'default_value': '1000',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 5},
+                                                  {'default_value': '500',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 6},
+                                                  {'default_value': '200',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 7},
+                                                  {'default_value': '100',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 8}]},
+ 'V_SwitchCounterState': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                          'datatype': {'bit_length': 24,
+                                       'items': [{'bit_offset': 16,
+                                                  'datatype': {'bit_length': 8,
+                                                               'single_values': [{'name': 'off',
+                                                                                  'value': 0},
+                                                                                 {'name': 'ok',
+                                                                                  'value': 1},
+                                                                                 {'name': 'too '
+                                                                                          'low',
+                                                                                  'value': 2},
+                                                                                 {'name': 'too '
+                                                                                          'high',
+                                                                                  'value': 4},
+                                                                                 {'name': 'too '
+                                                                                          'high',
+                                                                                  'value': 5}],
+                                                               'value_ranges': []},
+                                                  'description': None,
+                                                  'name': 'Status',
+                                                  'subindex': 1},
+                                                 {'bit_offset': 0,
+                                                  'datatype': {'bit_length': 16,
+                                                               'single_values': [],
+                                                               'value_ranges': [{'lower_value': 0,
+                                                                                 'name': None,
+                                                                                 'upper_value': 65535}]},
+                                                  'description': None,
+                                                  'name': 'Counter',
+                                                  'subindex': 2}],
+                                       'subindex_access_supported': True},
+                          'default_value': None,
+                          'description': None,
+                          'dynamic': False,
+                          'excluded_from_data_storage': False,
+                          'fixed_length_restriction': None,
+                          'id': 'V_SwitchCounterState',
+                          'index': 183,
+                          'modifies_other_variables': False,
+                          'name': 'Switch Counter State',
+                          'record_item_info': [{'default_value': '0',
+                                                'excluded_from_data_storage': False,
+                                                'modifies_other_variables': False,
+                                                'subindex': 1},
+                                               {'default_value': '1',
+                                                'excluded_from_data_storage': False,
+                                                'modifies_other_variables': False,
+                                                'subindex': 2}]},
+ 'V_SwitchPointConfigBDC1': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                             'datatype': {'bit_length': 32,
+                                          'items': [{'bit_offset': 24,
+                                                     'datatype': {'bit_length': 8,
+                                                                  'single_values': [{'name': 'N.O.',
+                                                                                     'value': 0},
+                                                                                    {'name': 'N.C.',
+                                                                                     'value': 1}],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Switchpoint '
+                                                             'Logic',
+                                                     'subindex': 1},
+                                                    {'bit_offset': 16,
+                                                     'datatype': {'bit_length': 8,
+                                                                  'single_values': [{'name': 'Single '
+                                                                                             'Point '
+                                                                                             'Mode',
+                                                                                     'value': 1},
+                                                                                    {'name': 'Window '
+                                                                                             'Mode',
+                                                                                     'value': 2},
+                                                                                    {'name': 'Two '
+                                                                                             'Point '
+                                                                                             'Mode',
+                                                                                     'value': 3}],
+                                                                  'value_ranges': []},
+                                                     'description': None,
+                                                     'name': 'Switchpoint Mode',
+                                                     'subindex': 2},
+                                                    {'bit_offset': 0,
+                                                     'datatype': {'bit_length': 16,
+                                                                  'single_values': [],
+                                                                  'value_ranges': [{'lower_value': 0,
+                                                                                    'name': None,
+                                                                                    'upper_value': 10}]},
+                                                     'description': None,
+                                                     'name': 'Switchpoint '
+                                                             'Hysteresis',
+                                                     'subindex': 3}],
+                                          'subindex_access_supported': True},
+                             'default_value': None,
+                             'description': 'Sets switchpoint-logic, -mode '
+                                            '(hysteresis can not be set)',
+                             'dynamic': False,
+                             'excluded_from_data_storage': False,
+                             'fixed_length_restriction': None,
+                             'id': 'V_SwitchPointConfigBDC1',
+                             'index': 61,
+                             'modifies_other_variables': False,
+                             'name': 'Switch Point Configuration BDC1',
+                             'record_item_info': [{'default_value': '0',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 1},
+                                                  {'default_value': '1',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 2},
+                                                  {'default_value': '5',
+                                                   'excluded_from_data_storage': False,
+                                                   'modifies_other_variables': False,
+                                                   'subindex': 3}]},
+ 'V_SystemCommand': {'access_rights': <AccessRightsT.WO: 'wo'>,
+                     'datatype': {'bit_length': 8,
+                                  'single_values': [{'name': 'Device Reset',
+                                                     'value': 128},
+                                                    {'name': 'Application '
+                                                             'Reset',
+                                                     'value': 129},
+                                                    {'name': 'Restore Factory '
+                                                             'Settings',
+                                                     'value': 130},
+                                                    {'name': 'Back-to-box',
+                                                     'value': 131}],
+                                  'value_ranges': [{'lower_value': 0,
+                                                    'name': 'Reserved',
+                                                    'upper_value': 63},
+                                                   {'lower_value': 132,
+                                                    'name': 'Reserved',
+                                                    'upper_value': 159}]},
+                     'default_value': None,
+                     'description': 'Command interface for applications. A '
+                                    'positive acknowledge indicates the '
+                                    'complete and correct finalization of the '
+                                    'requested function.',
+                     'dynamic': False,
+                     'excluded_from_data_storage': False,
+                     'fixed_length_restriction': None,
+                     'id': 'V_SystemCommand',
+                     'index': 2,
+                     'modifies_other_variables': True,
+                     'name': 'System Command',
+                     'record_item_info': []},
+ 'V_TeachInChannel': {'access_rights': <AccessRightsT.RW: 'rw'>,
+                      'datatype': {'bit_length': 8,
+                                   'single_values': [{'name': 'Default BDC '
+                                                              '(BDC1)',
+                                                      'value': 0},
+                                                     {'name': 'BDC1',
+                                                      'value': 1}],
+                                   'value_ranges': []},
+                      'default_value': '0',
+                      'description': 'Addresses BDC',
+                      'dynamic': False,
+                      'excluded_from_data_storage': False,
+                      'fixed_length_restriction': None,
+                      'id': 'V_TeachInChannel',
+                      'index': 58,
+                      'modifies_other_variables': False,
+                      'name': 'Teach-In Channel',
+                      'record_item_info': []},
+ 'V_TeachInStatus': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                     'datatype': {'bit_length': 8,
+                                  'single_values': [],
+                                  'value_ranges': []},
+                     'default_value': '0',
+                     'description': 'Shows state of Teach-In',
+                     'dynamic': False,
+                     'excluded_from_data_storage': False,
+                     'fixed_length_restriction': None,
+                     'id': 'V_TeachInStatus',
+                     'index': 59,
+                     'modifies_other_variables': False,
+                     'name': 'Teach-In Status',
+                     'record_item_info': []},
+ 'V_VendorName': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                  'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                               'fixed_length': 64},
+                  'default_value': 'Balluff',
+                  'description': 'The vendor name that is assigned to a Vendor '
+                                 'ID.',
+                  'dynamic': False,
+                  'excluded_from_data_storage': False,
+                  'fixed_length_restriction': 7,
+                  'id': 'V_VendorName',
+                  'index': 16,
+                  'modifies_other_variables': False,
+                  'name': 'Vendor Name',
+                  'record_item_info': []},
+ 'V_VendorText': {'access_rights': <AccessRightsT.RO: 'ro'>,
+                  'datatype': {'encoding': <CharacterEncodingT.UTF_8: 'UTF-8'>,
+                               'fixed_length': 64},
+                  'default_value': 'www.balluff.com',
+                  'description': 'Additional information about the vendor.',
+                  'dynamic': False,
+                  'excluded_from_data_storage': False,
+                  'fixed_length_restriction': 15,
+                  'id': 'V_VendorText',
+                  'index': 17,
+                  'modifies_other_variables': False,
+                  'name': 'Vendor Text',
+                  'record_item_info': []}}

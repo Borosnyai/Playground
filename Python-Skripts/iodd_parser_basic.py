@@ -47,7 +47,8 @@ print(f"Identification menu: {specialist.identification_menu_id}")
 
 # Read Resolved IODD:
 for string, variable in result.variables.items():
-    print(f'Key is --{string}-- and variable.datatype is --{variable.datatype}--.')
+    print(f'The variable is --{string}-- and its datatype is:')
+    pprint(variable)
 
 # Access resolved process data
 for pd_id, pd in result.process_data.items():
@@ -56,7 +57,7 @@ for pd_id, pd in result.process_data.items():
 
 # All process data:
 for pd_id, pd in result.process_data.items():
-    print(f'The id is: {pd_id}, whereas conditioin value is {pd.condition_value}')
+    print(f'The id is: {pd_id}, whereas condition value is {pd.condition_value}')
 
 # Access resolved errors
 # for (code, additional_code), error in result.errors.items():
