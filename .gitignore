@@ -23,4 +23,4 @@ virt
 output.txt
 
 # all zip-files
-.zip
+*.zip
