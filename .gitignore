@@ -1,7 +1,8 @@
 # Root level Node artifacts
 node_modules/
-package-lock.json
-package.json
+
+# package-lock.json
+# package.json
 
 # Frontend ignores (extra safety)
 frontend/node_modules/
@@ -20,3 +21,6 @@ virt
 
 # debug files
 output.txt
+
+# all zip-files
+.zip
