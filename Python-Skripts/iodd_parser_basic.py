@@ -4,6 +4,8 @@ from dotenv import load_dotenv
 from pprint import pprint
 from dataclasses import asdict
 
+from iodd_parser.types import ResolvedRecordT
+
 
 parser = IODDParser()
 load_dotenv()
@@ -47,8 +49,11 @@ print(f"Identification menu: {specialist.identification_menu_id}")
 
 # Read Resolved IODD:
 for string, variable in result.variables.items():
-    print(f'The variable is --{string}-- and its datatype is:')
-    pprint(variable)
+    print(f'The variable is --{string}-- and its index is {variable.index}:')
+    if variable.datatype.__class__ == ResolvedRecordT:
+        for item in variable.datatype.items:
+            print(f'    The name is {item.name} and the subindex is {item.subindex}')
+    
 
 # Access resolved process data
 for pd_id, pd in result.process_data.items():
