@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from pprint import pprint
 from dataclasses import asdict
 
-from iodd_parser.types import ResolvedRecordT
+from iodd_parser.types import ResolvedDatatype, ResolvedRecordT, ResolvedVariable
 
 
 parser = IODDParser()
@@ -39,13 +39,13 @@ print(f"Identification menu: {specialist.identification_menu_id}")
 
 
 # Access resolved variables by ID
-# for var_id, var in result.variables.items():
-#     if hasattr(var.datatype, "single_values"):
-#     # if var.index == 157:
-#         print(f'Resolved variable has ID "{var_id}" and the name: {var.name} (index={var.index}).')
-#         for line in var.datatype.single_values:
-#             print(f'Option nr. {line.value} is {line.name}.')
-#         print('\n')
+for var_id, var in result.variables.items():
+    if hasattr(var.datatype, "single_values"):
+    # if var.index == 157:
+        print(f'Resolved variable has ID "{var_id}" and the name: {var.name} (index={var.index}) and the class: {var.datatype.__class__}')
+        for line in var.datatype.single_values:
+            print(f'Option nr. {line.value} is {line.name}.')
+        print('\n')
 
 # Read Resolved IODD:
 for string, variable in result.variables.items():
@@ -53,6 +53,8 @@ for string, variable in result.variables.items():
     if variable.datatype.__class__ == ResolvedRecordT:
         for item in variable.datatype.items:
             print(f'    The name is {item.name} and the subindex is {item.subindex}')
+            if hasattr(item, "single_values"):
+                pprint(item.single_values)
     
 
 # Access resolved process data
