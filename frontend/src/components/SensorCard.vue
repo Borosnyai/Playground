@@ -1,7 +1,7 @@
 <script setup>
-import { computed } from 'vue'        // "ref" creates a reactive variable — when its value changes, Vue automatically updates the UI.
+import { computed, ref } from 'vue'        // "ref" creates a reactive variable — when its value changes, Vue automatically updates the UI.
 
-const props = defineProps({sensor: Object})
+const props = defineProps({ sensor: Object })
 
 const selectedPrinciple = ref(props.sensor.sensorPrinciple ?? 0)
 
