@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { initDataService } from '../services/dataService'
 
 export const useSensorStore = defineStore('sensor', {
   state: () => ({
