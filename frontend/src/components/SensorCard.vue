@@ -1,10 +1,14 @@
 <script setup>
-import { computed } from 'vue'
+import { computed } from 'vue'        // "ref" creates a reactive variable — when its value changes, Vue automatically updates the UI.
 
-const props = defineProps({
-  sensor: Object
-})
+const props = defineProps({sensor: Object})
 
+const selectedPrinciple = ref(props.sensor.sensorPrinciple ?? 0)
+
+function onPrincipleChange() {
+  console.log('SensorPrinciple changed to:', selectedPrinciple.value)
+  // Later: API calling towards the IO-Link Master.
+}
 const statusClass = computed(() => {
   if (props.sensor.status === 'CRITICAL') return 'bg-danger'
   if (props.sensor.status === 'WARN') return 'bg-warning'
@@ -28,6 +32,17 @@ const statusClass = computed(() => {
         <p v-for="(val, key) in sensor.details" :key="key" class="sensor-detail">
           {{ key }}: {{ val }}
         </p>
+      </div>
+
+      <!-- RW: SENSOR PRINCIPLE DROPDOWN -->
+      <div v-if="sensor.sensorPrincipleOptions" class="mt-3 text-start">
+        <label class="form-label small text-white-50">Sensor Principle (RW)</label>
+        <select class="form-select form-select-sm bg-dark text-white border-secondary" v-model="selectedPrinciple"
+          @change="onPrincipleChange">
+          <option v-for="opt in sensor.sensorPrincipleOptions" :key="opt.value" :value="opt.value">
+            {{ opt.label }} [{{ opt.value }}]
+          </option>
+        </select>
       </div>
 
       <!-- STATUS -->
