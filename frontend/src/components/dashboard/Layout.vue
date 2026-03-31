@@ -8,7 +8,7 @@ const store = useSensorStore()
 
 <template>
   <div class="container py-4">
-    <h1 class="text-white mb-4">Sensor Dashboard</h1>
+    <h1 class="text-white mb-4 text-center">Light Barrier</h1>
 
     <!-- DASHBOARD: display only -->
     <div class="row g-3">

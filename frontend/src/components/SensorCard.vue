@@ -13,7 +13,7 @@ const statusClass = computed(() => {
 </script>
 
 <template>
-  <div class="col-12 col-md-6 col-lg-4">
+  <div class="col-12 col-md-6 col-lg-4 mx-auto">
     <div class="sensor-card text-center">
 
       <h4 class="mb-3">{{ sensor.title }}</h4>

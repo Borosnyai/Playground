@@ -19,3 +19,9 @@ h1 {
   font-size: 1.8rem;
     /* was 3.2rem, now smaller */
 }
+
+.bdc1-title {
+  color: #4a9eff;
+  border-top: 1px solid #4a6fa5;
+  padding-top: 12px;
+}

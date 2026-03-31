@@ -6,8 +6,13 @@ const props = defineProps({ sensor: Object })
 // This stores the options loaded from the API
 const options = ref([])
 
+// this stores the options loaded from API
+const switchpointLogicOptions = ref([])
+
 // This stores the currently selected value
 const selectedValue = ref(0)
+// This stores the currently selected SwitchpointLogic
+const selectedSwitchpointLogic = ref(0)
 
 // This function fetches the dropdown options from the API
 // When the backend is ready, replace the URL with the real endpoint
@@ -29,27 +34,62 @@ async function loadOptions() {
   }
 }
 
+async function loadSwitchpointLogic() {       // async waiting for the API
+  try {
+    const response = await fetch(`http://localhost/iolink-master/sensor${props.sensor.id}/switchpointLogic/options`)
+    const data = await response.json()
+    switchpointLogicOptions.value = data
+  } catch (error) {
+    switchpointLogicOptions.value = [
+      { label: 'N.O.', value: 0 },
+      { label: 'N.C.', value: 1 }
+    ]
+  }
+
+}
+
 // Runs automatically when the component loads
 onMounted(() => {
   loadOptions()
+  loadSwitchpointLogic()
 })
 
 function onValueChange() {
   console.log('New SensorPrinciple value:', selectedValue.value)
   // Later: send value to IO-Link Master via REST API
 }
+
+/*BDC1*/
+// Switchpoint Logic
+function onSwitchpointLogicChange() {
+  console.log('Switchpoint Logic changed to:', selectedSwitchpointLogic.value)
+  // Later: send value to IO-Link Master via REST API
+}
 </script>
 
 <template>
   <div class="parameter-panel">
-    <h5>{{ sensor.title }} — Parameters</h5>
+    <h2 class="text-center">Parameters</h2>
 
-    <label>Sensor Principle (RW)</label>
+    <!-- Sensor Principle -->
+    <h6 class="section-title">Sensor Principle</h6>
     <select v-model="selectedValue" @change="onValueChange">
       <option v-for="opt in options" :key="opt.value" :value="opt.value">
         {{ opt.label }} [{{ opt.value }}]
       </option>
     </select>
+
+    <!-- BDC1 -->
+    <h6 class="section-title mt-3">BDC1</h6>
+
+    <!-- Switchpoint Logic -->
+    <label class="mt-2">Switchpoint Logic</label>
+    <select v-model="selectedSwitchpointLogic" @change="onSwitchpointLogicChange">
+      <option v-for="opt in switchpointLogicOptions" :key="opt.value" :value="opt.value">
+        {{ opt.label }} [{{ opt.value }}]
+      </option>
+    </select>
+
   </div>
 </template>
 
