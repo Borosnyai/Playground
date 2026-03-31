@@ -13,74 +13,32 @@ function statusByRange(value, warnMin, warnMax, critMin, critMax) {
 }
 
 export function getMockSensors() {
-  const tempValue = random(20, 90)
-  const airValue = random(10, 80)
-  const vibValue = random(1, 6)
-
+  
   return [
+    
     {
-      id: 1,
-      type: 'temperature',
-      title: 'Temperature',
-      value: tempValue,
-      unit: '°C',
-      status: statusByRange(tempValue, 30, 70, 20, 85)
-    },
-    {
-      id: 2,
-      type: 'air',
-      title: 'Air Quality',
-      value: airValue,
-      unit: 'AQI',
-      status: statusByRange(airValue, 20, 60, 10, 80)
-    },
-    {
-      id: 3,
-      type: 'vibration',
-      title: 'Vibration Sensor',
-      velocity: vibValue,
-      frequency: random(40, 80),
-      temperature: random(30, 60),
-      status: statusByRange(vibValue, 1, 4, 0.5, 5.5)
-    },
-    {
-      id: 4,
-      type: 'light',
+      id: 4,            
+      type: 'light',              // Type is used in SensorCard to decide how to display the data
+      
       title: 'Light Barrier',
+
       blocked: Math.random() > 0.7,
-      status: 'OK'
-    },
-    {
-      id: 5,
-      type: 'distance',
-      title: 'Distance Sensor',
-      value: random(50, 300),
-      unit: 'mm',
-      status: 'OK'
-    },
-    {
-      id: 6,
-      type: 'pressure',
-      title: 'Pressure Sensor',
-      value: random(1, 6),
-      unit: 'bar',
-      status: 'OK'
-    },
-    {
-      id: 10,
-      type: 'bcm',
-      title: 'Condition Monitoring (BCM0001)',
-      vibration: {
-        x: random(0.5, 5),
-        y: random(0.5, 5),
-        z: random(0.5, 5),
-        unit: 'mm/s'
-      },
-      temperature: {
-        value: random(25, 70),
-        unit: '°C'
-      },
-      status: Math.random() > 0.8 ? 'WARN' : 'OK'
+      // Simulates whether the light beam is blocked or not
+      // Math.random() gives a number between 0 and 1
+      // > 0.7 means: 30% chance it is blocked, 70% chance it is not
+      
+      status: 'OK',       // Status is OK for now!
+      sensorPrinciple: 0,               // 0 = Diffuse (default, as shown in the IODD-finder).    This value will later be sent to the IO-Link Master when the user changes it.
+
+      // This is an array (list) of all possible options for SensorPrinciple.It comes from the IODD definition of the sensor.
+      sensorPrincipleOptions: [             
+        { label: 'Diffuse', value: 0 },        // value: 0 → this is the default "Diffuse" mode
+        { label: 'Diffuse with background suppression', value: 1 }, // value: 1 → sensor ignores background objects behind the target
+        { label: 'Retro-reflective', value: 2 },                    // value: 2 → sensor works with a reflector on the opposite side
+        { label: 'Through-beam emitter', value: 3 },                 // value: 3 → this unit is the light sender in a through-beam pair
+        { label: 'Through-beam receiver', value: 4 }                // value: 4 → this unit is the light receiver in a through-beam pair
+      ]
     }
+    
   ]
 }
