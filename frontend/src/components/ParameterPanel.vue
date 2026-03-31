@@ -83,7 +83,7 @@ function onSwitchpointLogicChange() {
     <h6 class="section-title mt-3">BDC1</h6>
 
     <!-- Switchpoint Logic -->
-    <label class="mt-2">Switchpoint Logic</label>
+    <label class="mt-2">Switch Point Configuration BDC1:Switchpoint Logic</label>
     <select v-model="selectedSwitchpointLogic" @change="onSwitchpointLogicChange">
       <option v-for="opt in switchpointLogicOptions" :key="opt.value" :value="opt.value">
         {{ opt.label }} [{{ opt.value }}]
