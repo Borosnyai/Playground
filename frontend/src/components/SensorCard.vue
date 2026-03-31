@@ -5,10 +5,6 @@ const props = defineProps({ sensor: Object })
 
 const selectedPrinciple = ref(props.sensor.sensorPrinciple ?? 0)
 
-function onPrincipleChange() {
-  console.log('SensorPrinciple changed to:', selectedPrinciple.value)
-  // Later: API calling towards the IO-Link Master.
-}
 const statusClass = computed(() => {
   if (props.sensor.status === 'CRITICAL') return 'bg-danger'
   if (props.sensor.status === 'WARN') return 'bg-warning'
@@ -21,17 +17,6 @@ const statusClass = computed(() => {
     <div class="sensor-card text-center">
 
       <h4 class="mb-3">{{ sensor.title }}</h4>
-
-      <!-- RW: SENSOR PRINCIPLE DROPDOWN -->
-      <div v-if="sensor.sensorPrincipleOptions" class="mt-3 text-start">
-        <label class="form-label small text-white-50">Sensor Principle (RW)</label>
-        <select class="form-select form-select-sm bg-dark text-white border-secondary" v-model="selectedPrinciple"
-          @change="onPrincipleChange">
-          <option v-for="opt in sensor.sensorPrincipleOptions" :key="opt.value" :value="opt.value">
-            {{ opt.label }} [{{ opt.value }}]
-          </option>
-        </select>
-      </div>
 
       <!-- STATUS -->
       <span class="badge mt-3" :class="statusClass">
