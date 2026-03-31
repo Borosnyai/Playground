@@ -33,9 +33,9 @@ const statusClass = computed(() => {
 .sensor-card {
   background: #2c3e50;
   color: white;
-  padding: 20px;
+  padding: 12px;
   border-radius: 10px;
-  min-height: 180px;
+  min-height: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
