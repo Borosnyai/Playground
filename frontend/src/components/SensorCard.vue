@@ -22,18 +22,6 @@ const statusClass = computed(() => {
 
       <h4 class="mb-3">{{ sensor.title }}</h4>
 
-      <!-- MAIN VALUE -->
-      <p class="sensor-value">
-        {{ sensor.value }} {{ sensor.unit }}
-      </p>
-
-      <!-- OPTIONAL DETAILS -->
-      <div v-if="sensor.details">
-        <p v-for="(val, key) in sensor.details" :key="key" class="sensor-detail">
-          {{ key }}: {{ val }}
-        </p>
-      </div>
-
       <!-- RW: SENSOR PRINCIPLE DROPDOWN -->
       <div v-if="sensor.sensorPrincipleOptions" class="mt-3 text-start">
         <label class="form-label small text-white-50">Sensor Principle (RW)</label>
@@ -66,15 +54,5 @@ const statusClass = computed(() => {
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.sensor-value {
-  font-size: 1.8rem;
-  font-weight: bold;
-}
-
-.sensor-detail {
-  font-size: 0.9rem;
-  opacity: 0.85;
 }
 </style>
