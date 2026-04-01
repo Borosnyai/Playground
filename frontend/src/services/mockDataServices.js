@@ -1,17 +1,3 @@
-function random(min, max) {
-  return +(Math.random() * (max - min) + min).toFixed(1)
-}
-
-function statusByRange(value, warnMin, warnMax, critMin, critMax) {
-  if (value < critMin || value > critMax) {
-    return 'CRITICAL'
-  }
-  if (value < warnMin || value > warnMax) {
-    return 'WARN'
-  }
-  return 'OK'
-}
-
 export function getMockSensors() {
   const tempValue = random(20, 90)
   const airValue = random(10, 80)
@@ -56,6 +42,32 @@ export function getMockSensors() {
         Frequency: `${vibFreq} Hz`,
         Temperature: `${vibTemp} °C`
       }
+
+
+  return [
+
+        {
+          id: 4,
+          type: 'light',              // Type is used in SensorCard to decide how to display the data
+
+          title: 'Light Barrier',
+
+          blocked: Math.random() > 0.7,
+          // Simulates whether the light beam is blocked or not
+          // Math.random() gives a number between 0 and 1
+          // > 0.7 means: 30% chance it is blocked, 70% chance it is not
+
+          status: 'OK',       // Status is OK for now!
+        },
+        {
+          id: 5,
+          type: 'xy',
+          title: 'XY Sensor',
+          valueX: 0,
+          valueY: 0,
+          status: 'OK',
+
+        }
+
+      ]
     }
-  ]
-}
