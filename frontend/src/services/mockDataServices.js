@@ -14,6 +14,14 @@ export function getMockSensors() {
       // > 0.7 means: 30% chance it is blocked, 70% chance it is not
 
       status: 'OK',       // Status is OK for now!
+    },
+    {
+      id: 5,
+      type: 'xy',
+      title: 'XY Sensor',
+      valueX: 0,
+      valueY: 0,
+      status: 'OK',
     }
 
   ]
