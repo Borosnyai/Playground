@@ -2,12 +2,15 @@
 import { onMounted } from 'vue';
 import { useSensorStore } from './stores/sensorStore';
 import { initDataService } from './services/dataService';
-import Layout from './components/dashboard/Layout.vue'
+import Layout from './components/Dashboard/Layout.vue'
 
 const store = useSensorStore()
 
-onMounted(() => {
+ function initApp() {
   initDataService(store)
+ }
+onMounted(() => {
+  initApp()
 })
 </script>
 
