@@ -1,10 +1,11 @@
-import { getMockSensors } from "./mockDataServices"
-import { startMQTT } from "./mqttDataService"
+import { getMockSensors } from './mockDataServices';
+import { startMQTT } from './mqttDataService';
 
+const useMockData = true
 
-const useMockData = true 
-
-export function getSensors() {
+// CHANGED: renamed from getSensors to initDataService
+// because App.vue imports it with this name
+export function initDataService(store) {
   if (useMockData) {
     console.log('Using MOCK data service')
     store.updateSensors(getMockSensors())
@@ -18,4 +19,3 @@ export function getSensors() {
     })
   }
 }
-
