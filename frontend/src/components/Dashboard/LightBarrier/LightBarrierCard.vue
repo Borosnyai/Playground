@@ -25,7 +25,7 @@ const statusClass = computed(() => {
         {{ sensor.status }}
       </span>
 
-      <!-- PARAMETERS (MOST MÁR BENT) -->
+      <!-- PARAMETERS-->
       <div class="parameter-section">
 
         <h5>Parameters</h5>
@@ -90,23 +90,23 @@ const statusClass = computed(() => {
   gap: 12px;
 }
 
-/* PARAMETERS rész ugyanaz mint XY-nál */
+
 .parameter-section {
   background: #2b4a6f;
-  /* világosabb kék, mint XY */
+  
   padding: 20px;
   border-radius: 10px;
   margin-top: 10px;
 }
 
-/* cím */
+/*Title*/
 .parameter-section h5 {
   font-size: 22px;
   margin-bottom: 15px;
   text-align: center;
 }
 
-/* inputok */
+/* inputs */
 .form-select {
   background-color: #1c196a;
   color: rgb(240, 240, 240);
