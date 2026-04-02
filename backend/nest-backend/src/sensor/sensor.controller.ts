@@ -12,7 +12,12 @@ export class SensorController {
   @Get(':index')
   getSensorByIndex(@Param('index') index: string) {
     return this.sensorService.getSensorByIndex(Number(index));
-  } 
+  }
+  @Get(':index/:subindex')
+  getSensorValue(
+    @Param('index') index: string,
+    @Param('subindex') subindex: string,
+  ) {
+    return this.sensorService.getSensorValue(Number(index), Number(subindex));
+  }
 }
-
-
