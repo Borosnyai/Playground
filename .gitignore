@@ -24,3 +24,6 @@ output.txt
 
 # all zip-files
 *.zip
+
+# for testfiles
+/temp

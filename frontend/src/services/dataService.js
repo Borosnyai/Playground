@@ -1,3 +1,10 @@
+
+import { getMockSensors } from './mockDataServices'
+
+export function getSensors() {
+  return getMockSensors()
+}
+
 import { getMockSensors } from './mockDataServices';
 import { startMQTT } from './mqttDataService';
 
@@ -19,3 +26,4 @@ export function initDataService(store) {
     })
   }
 }
+
