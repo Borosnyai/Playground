@@ -10,8 +10,6 @@ export function getMockSensors() {
       // Simulates whether the light beam is blocked or not
       // Math.random() gives a number between 0 and 1
       // > 0.7 means: 30% chance it is blocked, 70% chance it is not
-
-      status: 'OK',       // Status is OK for now!
     },
     {
       id: 5,
