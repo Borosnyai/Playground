@@ -12,30 +12,30 @@ const product_IDs = ["VVB302",
 
 console.log(product_IDs);
 
-product_IDs.forEach(id => {
+for (const id of product_IDs){
     console.log(id);
-})
-const params = new URLSearchParams();
-params.append("productId", product_IDs[0]);
-console.log(API_url + "drivers?" + params);
+    const params = new URLSearchParams();
+    params.append("productId", id);
+    console.log(API_url + "drivers?" + params);
+    
+    const data = await fetch(API_url + "drivers?" + params);
+    const output = await data.json();
+    
+    // getting iodd-zip:
+    const vendorId = output.content[0].vendorId
+    const ioddId = output.content[0].ioddId
+    const zip = await fetch(API_url + `vendors/${vendorId}/iodds/${ioddId}/files/zip`, {headers:{
+        'X-API-KEY': api_key,
+        }
+    });
+    
+    console.log(zip.headers)
+    
+    const filename = zip.headers.get('content-disposition')?.split('filename=')[1] || 'download.zip';
+    
+    await writeFile(filename, zip.body);
+}
 
-const data = await fetch(API_url + "drivers?" + params);
-const output = await data.json();
+// console.log(API_url + `vendors/${vendorId}/iodds/${ioddId}/files/zip`);
 
-// getting iodd-zip:
-const vendorId = output.content[0].vendorId
-const ioddId = output.content[0].ioddId
-const zip = await fetch(API_url + `vendors/${vendorId}/iodds/${ioddId}/files/zip`, {headers:{
-    'X-API-KEY': api_key,
-    }
-});
-
-console.log(zip.headers)
-
-const filename = zip.headers.get('content-disposition')?.split('filename=')[1] || 'download.zip';
-
-await writeFile(filename, zip.body);
-
-console.log(API_url + `vendors/${vendorId}/iodds/${ioddId}/files/zip`);
-
-console.log(output.content[0]);
+// console.log(output.content[id]);
