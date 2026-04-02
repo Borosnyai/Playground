@@ -1,34 +1,53 @@
 <script setup>
-import SensorCard from './LightBarrier/LightBarrierCard.vue'
+import { onMounted } from 'vue'
 import { useSensorStore } from '../../stores/sensorStore'
-import LightBarrierCard from './LightBarrier/LightBarrierCard.vue'
-import XYSensorCard from './XYSensor/XYCard.vue'
-import ControlPanel from './MasterControl/ControlPanel.vue'
+
+import OverviewBar from './OverviewBar.vue'
+import GaugeSection from './GaugeSection.vue'
+import SensorGrid from './SensorGrid.vue'
+import TimeSeriesSection from './TimeSeriesSection.vue'
 
 const store = useSensorStore()
+
+onMounted(() => {
+  store.updateSensors()
+  setInterval(() => {
+    store.updateSensors()
+  }, 5000)
+})
 </script>
 
 <template>
-  <div class="row mt-4 justify-content-center">
-    <h1 class="text-white mb-4 text-center">Sensor Dashboard</h1>
+  <div class="dashboard-grid">
 
-    <!-- Sensors -->
-    
-    <!--LightBArrier-->
-    <div class="row g-4 align-items-start">
-      <template v-for="sensor in store.sensors" :key="sensor.id">
-        <LightBarrierCard v-if="sensor.type === 'light'" :sensor="sensor" />
+    <OverviewBar />
 
-        <!--XYSensor coming soon-->
-        <XYSensorCard v-else-if="sensor.type === 'xy'" :sensor="sensor" />
-      </template>
+    <div class="sensors-row">
+      <SensorGrid />
+      <GaugeSection :gauges="store.gaugeSensors" />
+
+
     </div>
 
-    <!-- Button -->
-    <div class="row mt-4 justify-content-center">
-      <div class="col-12 col-md-8 col-lg-5">
-        <ControlPanel />
-      </div>
-    </div>
+    <TimeSeriesSection :key="store.sensors.length" :sensors="[...store.monitoringSensors, ...store.gaugeSensors]" />
+
+
   </div>
+
 </template>
+
+<style scoped>
+.sensors-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .sensors-row {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
