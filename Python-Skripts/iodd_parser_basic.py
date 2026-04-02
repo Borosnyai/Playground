@@ -10,11 +10,11 @@ from iodd_parser.types import ResolvedDatatype, ResolvedRecordT, ResolvedVariabl
 parser = IODDParser()
 load_dotenv()
 
-iodd_path = os.getenv("IODD_PATH")
+iodd_path = os.getenv('IODD_PATH')
 
 sensor1 = "Balluff-BOSR254KUUIPR10-ADSS-20210628-IODD1.1.zip"
 sensor2 = "Balluff-BOS21UUIRP30-20180207-IODD1.1.zip"
-sensor3 = "ifm-0006F2-20240924-IODD1.1.zip"
+sensor3 = ""
 
 # Parse and resolve in one step
 result = parser.parse_and_resolve(iodd_path + sensor2)

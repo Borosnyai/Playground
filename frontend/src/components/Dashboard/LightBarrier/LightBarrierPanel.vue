@@ -94,6 +94,7 @@ function onSwitchpointLogicChange() {
 </template>
 
 <style scoped>
+
 .parameter-panel {
   background: #1e3a5f;
   color: white;
@@ -113,8 +114,13 @@ select {
   width: 100%;
   padding: 8px;
   border-radius: 6px;
-  background: #2c3e50;
+  background: #668bb9;
   color: white;
-  border: 1px solid #4a6fa5;
+  border: 1px solid #2c3e58;
+}
+
+.sensor-card h4 {
+  font-size: 20px;
+  font-weight: 500;
 }
 </style>

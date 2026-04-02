@@ -17,11 +17,19 @@ body {
 
 h1 {
   font-size: 1.8rem;
-    /* was 3.2rem, now smaller */
+  /* was 3.2rem, now smaller */
 }
 
 .bdc1-title {
   color: #4a9eff;
   border-top: 1px solid #4a6fa5;
   padding-top: 12px;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
