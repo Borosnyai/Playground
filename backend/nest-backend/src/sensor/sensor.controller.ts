@@ -6,18 +6,23 @@ export class SensorController {
   constructor(private readonly sensorService: SensorService) {}
 
   @Get()
-  getSensorData() {
-    return this.sensorService.getSensorData();
+  async getIoddData() {
+    return await this.sensorService.getIoddFromPython();
   }
+
   @Get(':index')
-  getSensorByIndex(@Param('index') index: string) {
-    return this.sensorService.getSensorByIndex(Number(index));
+  async getSensorByIndex(@Param('index') index: string) {
+    return await this.sensorService.getSensorByIndex(Number(index));
   }
+
   @Get(':index/:subindex')
-  getSensorValue(
+  async getSensorValue(
     @Param('index') index: string,
     @Param('subindex') subindex: string,
   ) {
-    return this.sensorService.getSensorValue(Number(index), Number(subindex));
+    return await this.sensorService.getSensorValue(
+      Number(index),
+      Number(subindex),
+    );
   }
 }

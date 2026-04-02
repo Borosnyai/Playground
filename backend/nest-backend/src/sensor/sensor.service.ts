@@ -1,14 +1,23 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { mockSensorData } from './data/mock-sensor-data';
+import { HttpService } from '@nestjs/axios';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable()
 export class SensorService {
-  getSensorData() {
-    return mockSensorData;
+  constructor(private readonly httpService: HttpService) {}
+
+  private readonly url =
+    'http://127.0.0.1:8000/iodd/Balluff-BOS21UUIRP30-20180207-IODD1.1.zip';
+
+  async getIoddFromPython() {
+    const response = await firstValueFrom(this.httpService.get(this.url));
+    return response.data;
   }
 
-  getSensorByIndex(index: number) {
-    const sensor = mockSensorData.find((item) => item.index === index);
+  async getSensorByIndex(index: number) {
+    const data = await this.getIoddFromPython();
+
+    const sensor = data.find((item: any) => item.index === index);
 
     if (!sensor) {
       throw new NotFoundException(`Sensor with index ${index} not found`);
@@ -17,14 +26,10 @@ export class SensorService {
     return sensor;
   }
 
-  getSensorValue(index: number, subindex: number) {
-    const sensor = mockSensorData.find((item) => item.index === index);
+  async getSensorValue(index: number, subindex: number) {
+    const sensor = await this.getSensorByIndex(index);
 
-    if (!sensor) {
-      throw new NotFoundException(`Sensor with index ${index} not found`);
-    }
-
-    const value = sensor.values.find((item) => item.subindex === subindex);
+    const value = sensor.values.find((item: any) => item.subindex === subindex);
 
     if (!value) {
       throw new NotFoundException(
@@ -33,9 +38,8 @@ export class SensorService {
     }
 
     return {
-      id: sensor.id,
-      name: sensor.name,
       index: sensor.index,
+      name: sensor.name,
       value,
     };
   }
