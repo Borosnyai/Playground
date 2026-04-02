@@ -1,5 +1,6 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { SensorService } from './sensor.service';
+import { UpdateSensorDto } from './dto/update-sensor.dto';
 
 @Controller('sensor')
 export class SensorController {
@@ -19,7 +20,7 @@ export class SensorController {
   async setValue(
     @Param('index') index: string,
     @Param('subindex') subindex: string,
-    @Body() body: { value: number },
+    @Body() body: UpdateSensorDto,
   ) {
     return await this.sensorService.writeValue(
       Number(index),
