@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { SensorService } from './sensor.service';
 
 @Controller('sensor')
@@ -10,19 +10,21 @@ export class SensorController {
     return await this.sensorService.getIoddFromPython();
   }
 
-  @Get(':index')
-  async getSensorByIndex(@Param('index') index: string) {
-    return await this.sensorService.getSensorByIndex(Number(index));
+  @Post()
+  async initSensor() {
+    return await this.sensorService.initSensor();
   }
 
-  @Get(':index/:subindex')
-  async getSensorValue(
+  @Patch(':index/:subindex')
+  async setValue(
     @Param('index') index: string,
     @Param('subindex') subindex: string,
+    @Body() body: { value: number },
   ) {
-    return await this.sensorService.getSensorValue(
+    return await this.sensorService.writeValue(
       Number(index),
       Number(subindex),
+      body.value,
     );
   }
 }

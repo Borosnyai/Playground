@@ -7,41 +7,34 @@ import { Sensor } from './types/iodd.types';
 export class SensorService {
   constructor(private readonly httpService: HttpService) {}
 
-  private readonly url =
-    'http://127.0.0.1:8000/iodd/Balluff-BOS21UUIRP30-20180207-IODD1.1.zip';
+  private readonly baseUrl = 'http://127.0.0.1:8000';
 
   async getIoddFromPython(): Promise<Sensor[]> {
-    const response = await firstValueFrom(this.httpService.get(this.url));
+    const response = await firstValueFrom(
+      this.httpService.get(
+        `${this.baseUrl}/iodd/Balluff-BOS21UUIRP30-20180207-IODD1.1.zip`,
+      ),
+    );
     return response.data;
   }
 
-  async getSensorByIndex(index: number): Promise<Sensor> {
-    const data = await this.getIoddFromPython();
-
-    const sensor = data.find((item) => item.index === index);
-
-    if (!sensor) {
-      throw new NotFoundException(`Sensor with index ${index} not found`);
-    }
-
-    return sensor;
-  }
-
-  async getSensorValue(index: number, subindex: number) {
-    const sensor = await this.getSensorByIndex(index);
-
-    const value = sensor.values.find((v) => v.subindex === subindex);
-
-    if (!value) {
-      throw new NotFoundException(
-        `Subindex ${subindex} not found for sensor index ${index}`,
-      );
-    }
+  async writeValue(index: number, subindex: number, value: number) {
+    // here come later: 
+    // - MQTT publish
+    // OR
+    // - IO-Link Master REST calling
 
     return {
-      index: sensor.index,
-      name: sensor.name,
+      message: 'WRITE request received',
+      index,
+      subindex,
       value,
+    };
+  }
+
+  async initSensor() {
+    return {
+      message: 'INIT sensor (POST) not implemented yet',
     };
   }
 }
