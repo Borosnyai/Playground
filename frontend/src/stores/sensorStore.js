@@ -18,6 +18,12 @@ export const useSensorStore = defineStore('sensor', {
       } else {
         this.sensors.push(sensor)
       }
+    },
+    async fetchSensors() {
+      const response = await fetch('http://localhost:3000/sensor/data')
+      const data = await response.json()
+
+      this.updateSensors(data.sensors)
     }
   }
 })

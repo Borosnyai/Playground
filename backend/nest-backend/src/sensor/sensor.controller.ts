@@ -10,6 +10,10 @@ export class SensorController {
   async getIoddData() {
     return await this.sensorService.getIoddFromPython();
   }
+  @Get('data')
+  async getSensorData() {
+    return await this.sensorService.getSensorData();
+  }
 
   @Post()
   async initSensor() {

@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useSensorStore } from '../stores/sensorStore'
 
@@ -9,6 +9,10 @@ import ControlPanel from './Dashboard/MasterControl/ControlPanel.vue'
 
 const store = useSensorStore()
 const { sensors } = storeToRefs(store)
+
+onMounted(() => {
+  store.fetchSensors()
+})
 
 const lightSensor = computed(() =>
   sensors.value.find(sensor => sensor.type === 'light')

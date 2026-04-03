@@ -37,4 +37,17 @@ export class SensorService {
       message: 'INIT sensor (POST) not implemented yet',
     };
   }
+  async getSensorData() {
+    return {
+      sensors: [
+        {
+          id: 1,
+          name: 'Light Barrier',
+          type: 'Light',
+          value: 1,
+          status: 'OK',
+        },
+      ],
+    };
+  }
 }
