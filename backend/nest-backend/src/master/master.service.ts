@@ -1,9 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
+import { HttpService } from '@nestjs/axios';
 
 @Injectable()
 export class MasterService {
-  constructor(private readonly configService: ConfigService) {}
+  constructor(private readonly configService: ConfigService, 
+            private readonly htppService: HttpService) {}
 
   getMasterConfig() {
     const baseUrl = this.configService.get<string>('MASTER_BASE_URL');
