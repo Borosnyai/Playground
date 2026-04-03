@@ -10,4 +10,8 @@ export class MasterController {
     Getconfig() {
         return this.masterService.getMasterConfig();
     }
+    @Get('test')
+    async testConnection() {
+        return await this.masterService.testConnection();
+    }
 }
