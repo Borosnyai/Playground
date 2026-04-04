@@ -1,11 +1,9 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
-import { SensorService } from './sensor.service';
 import { SensorController } from './sensor.controller';
+import { SensorService } from './sensor.service';
 
 @Module({
-  imports: [HttpModule],
-  providers: [SensorService],
   controllers: [SensorController],
+  providers: [SensorService],
 })
 export class SensorModule {}

@@ -1,53 +1,55 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { HttpService } from '@nestjs/axios';
-import { firstValueFrom } from 'rxjs';
-import { Sensor } from './types/iodd.types';
+import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import * as mqtt from 'mqtt';
 
 @Injectable()
-export class SensorService {
-  constructor(private readonly httpService: HttpService) {}
+export class SensorService implements OnModuleInit, OnModuleDestroy {
+  private client: mqtt.MqttClient | null = null;
+  private latestMqttData: any = null;
 
-  private readonly baseUrl = 'http://127.0.0.1:8000';
+  onModuleInit() {
+    this.client = mqtt.connect('mqtt://localhost:1883');
 
-  async getIoddFromPython(): Promise<Sensor[]> {
-    const response = await firstValueFrom(
-      this.httpService.get(
-        `${this.baseUrl}/iodd/Balluff-BOS21UUIRP30-20180207-IODD1.1.zip`,
-      ),
-    );
-    return response.data;
+    this.client.on('connect', () => {
+      console.log('MQTT client connected');
+
+      this.client?.subscribe('sensors/light-barrier/data', (err) => {
+        if (err) {
+          console.error('MQTT subscribe error:', err);
+          return;
+        }
+
+        console.log('Subscribed to sensors/light-barrier/data');
+      });
+    });
+
+    this.client.on('message', (topic, message) => {
+      console.log('MQTT topic:', topic);
+      console.log('MQTT raw message:', message.toString());
+
+      try {
+        const parsed = JSON.parse(message.toString());
+        console.log('MQTT parsed message:', parsed);
+        this.latestMqttData = parsed;
+      } catch (error) {
+        console.error('JSON parse error:', error);
+        this.latestMqttData = {
+          raw: message.toString(),
+          topic,
+        };
+      }
+    });
+
+    this.client.on('error', (err) => {
+      console.error('MQTT client error:', err);
+    });
   }
 
-  async writeValue(index: number, subindex: number, value: number) {
-    // here come later: 
-    // - MQTT publish
-    // OR
-    // - IO-Link Master REST calling
-
-    return {
-      message: 'WRITE request received',
-      index,
-      subindex,
-      value,
-    };
+  onModuleDestroy() {
+    this.client?.end();
   }
 
-  async initSensor() {
-    return {
-      message: 'INIT sensor (POST) not implemented yet',
-    };
-  }
-  async getSensorData() {
-    return {
-      sensors: [
-        {
-          id: 1,
-          name: 'Light Barrier',
-          type: 'Light',
-          value: 1,
-          status: 'OK',
-        },
-      ],
-    };
+  getLatestMqttData() {
+    console.log('Returning latest MQTT data:', this.latestMqttData);
+    return this.latestMqttData;
   }
 }
