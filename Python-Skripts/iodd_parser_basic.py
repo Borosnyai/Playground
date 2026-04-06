@@ -21,6 +21,8 @@ result = parser.parse_and_resolve(iodd_path + sensor2)
 
 print(result.device_name)
 print(result.device_manufacturer)
+print('#' * 50)
+pprint(result)
 
 
 # Access user interface menus

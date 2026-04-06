@@ -12,13 +12,13 @@ export class SensorService implements OnModuleInit, OnModuleDestroy {
     this.client.on('connect', () => {
       console.log('MQTT client connected');
 
-      this.client?.subscribe('sensors/light-barrier/data', (err) => {
+      this.client?.subscribe('sensor1/data', (err) => {
         if (err) {
           console.error('MQTT subscribe error:', err);
           return;
         }
 
-        console.log('Subscribed to sensors/light-barrier/data');
+        console.log('Subscribed to sensor1/data');
       });
     });
 

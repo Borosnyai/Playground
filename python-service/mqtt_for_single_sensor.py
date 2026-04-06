@@ -3,7 +3,7 @@ import paho.mqtt.client as mqtt
 # Konfiguration
 BROKER_IP = "localhost"  # Da Broker und Skript auf demselben Rechner
 PORT = 1883
-TOPIC = "/sensor1/data"
+TOPIC = "sensor1/data"
 
 # Callback-Funktion: Wird aufgerufen, wenn eine Nachricht eintrifft
 def on_message(client, userdata, message):

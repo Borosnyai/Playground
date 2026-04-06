@@ -2,6 +2,7 @@ import 'dotenv/config';
 
 const master_ip = process.env.MASTER_IP;
 
+
 const get_data = {
     "code": "request",
     "cid": 4711,
@@ -13,7 +14,7 @@ const send_data = {
     "code": "request",
     "cid": 4711,
     "adr": "/iolinkmaster/port[1]/iolinkdevice/iolwriteacyclic",
-    "data": { "index": 187, "subindex": 0, "value": "04" }
+    "data": { "index": 187, "subindex": 0, "value": "00" }
 }
 
 let resp = await fetch(master_ip, {
@@ -37,4 +38,4 @@ resp = await fetch(master_ip, {
 });
 
 output = await resp.json();
-console.log(`Der Wert beträgt jetzt ${output.data.value}.`);
+console.log(`Der Wert wurde auf ${output.data.value} gesetzt.`);
