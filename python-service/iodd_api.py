@@ -156,24 +156,48 @@ def debug_all_top_level():
 @app.get("/variables")
 def get_variables():
     raw_variables = getattr(result, "variables", {})
-
     variables = []
 
     for variable_id, var in raw_variables.items():
-        variables.append({
-            "id": variable_id,
-            "name": clean_value(getattr(var, "name", None)),
-            "index": clean_value(getattr(var, "index", None)),
-            "description": clean_value(getattr(var, "description", None)),
-            "datatype": clean_value(getattr(var, "datatype", None)),
-            "access_rights": clean_value(getattr(var, "access_rights", None)),
-        })
+        index = clean_value(getattr(var, "index", None))
+        name = clean_value(getattr(var, "name", None))
+        description = clean_value(getattr(var, "description", None))
+        datatype = getattr(var, "datatype", None)
+        access_rights = clean_value(getattr(var, "access_rights", None))
+
+        items = getattr(datatype, "items", None)
+
+        # Ha vannak subitemek, akkor minden subitem külön sor legyen
+        if items:
+            for item in items:
+                variables.append({
+                    "id": f"{variable_id}_{clean_value(getattr(item, 'subindex', None))}",
+                    "variable_id": variable_id,
+                    "parent_name": name,
+                    "name": clean_value(getattr(item, "name", None)),
+                    "index": index,
+                    "subindex": clean_value(getattr(item, "subindex", None)),
+                    "description": clean_value(getattr(item, "description", None)),
+                    "datatype": clean_value(getattr(item, "datatype", None)),
+                    "access_rights": access_rights,
+                })
+        else:
+            variables.append({
+                "id": variable_id,
+                "variable_id": variable_id,
+                "parent_name": None,
+                "name": name,
+                "index": index,
+                "subindex": None,
+                "description": description,
+                "datatype": clean_value(datatype),
+                "access_rights": access_rights,
+            })
 
     return {
         "count": len(variables),
         "variables": variables
     }
-
 
 @app.get("/variables/index/{index}")
 def get_variable_by_index(index: int):
