@@ -99,6 +99,7 @@ def get_iodd_info():
     return {
         "device_name": clean_value(getattr(result, "device_name", None)),
         "manufacturer": clean_value(getattr(result, "device_manufacturer", None)),
+        "description": result.texts['TI_ProductText'],
     }
 
 
