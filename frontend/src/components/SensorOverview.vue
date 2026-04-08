@@ -230,8 +230,8 @@ onMounted(() => {
                     </div>
                 </div>
 
-                <div v-show="activeTab === 'ioddviewer'" class="placeholder-tab">
-                    IODDViewer kommt im nächsten Schritt.
+                <div v-show="activeTab === 'ioddviewer'">
+                    <SensorsData />
                 </div>
             </template>
         </div>
