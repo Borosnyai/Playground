@@ -151,20 +151,13 @@ onMounted(() => {
           <td>{{ readValues[getWriteKey(variable)] ?? '-' }}</td>
           <td>
             <div class="action-box">
-              <button
-                v-if="canRead(variable.access_rights)"
-                @click="readValue(variable)"
-              >
+              <button v-if="canRead(variable.access_rights)" @click="readValue(variable)">
                 Read
               </button>
 
               <template v-if="canWrite(variable.access_rights)">
-                <input
-                  v-model="writeValues[getWriteKey(variable)]"
-                  type="text"
-                  placeholder="Wert eingeben"
-                  class="write-input"
-                />
+                <input v-model="writeValues[getWriteKey(variable)]" type="text" placeholder="Wert eingeben"
+                  class="write-input" />
                 <button @click="writeValue(variable)">
                   Write
                 </button>

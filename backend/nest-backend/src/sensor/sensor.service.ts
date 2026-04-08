@@ -1,6 +1,7 @@
-import { Injectable, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { Injectable, OnModuleDestroy, OnModuleInit } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { firstValueFrom } from 'rxjs';
+
 import * as mqtt from 'mqtt';
 
 @Injectable()
@@ -8,7 +9,7 @@ export class SensorService implements OnModuleInit, OnModuleDestroy {
   private client: mqtt.MqttClient | null = null;
   private latestMqttData: any = null;
 
-  constructor(private readonly httpService: HttpService) { }
+  constructor(private readonly httpService: HttpService) {}
 
   onModuleInit() {
     this.client = mqtt.connect('mqtt://localhost:1883');
@@ -60,7 +61,7 @@ export class SensorService implements OnModuleInit, OnModuleDestroy {
   async getZipVariables() {
     try {
       const response = await firstValueFrom(
-        this.httpService.get('http://127.0.0.1:8000/variables')
+        this.httpService.get('http://127.0.0.1:8000/variables'),
       );
 
       return response.data;
@@ -75,16 +76,22 @@ export class SensorService implements OnModuleInit, OnModuleDestroy {
       };
     }
   }
+
   async getVariableValue(index: number, subindex: number) {
     const response = await firstValueFrom(
-      this.httpService.get(`http://127.0.0.1:8000/variables/${index}/${subindex}`)
+      this.httpService.get(
+        `http://127.0.0.1:8000/variables/${index}/${subindex}`,
+      ),
     );
 
     return response.data;
   }
 
-  async writeVariableValue(index: number, subindex: number, value: any) {
+  async writeValue(index: number, subindex: number, value: any) {
+    console.log('WRITE:', index, subindex, value);
+
     return {
+      success: true,
       message: 'Write request received',
       index,
       subindex,

@@ -1,22 +1,17 @@
-import { Controller, Get, Param, Patch, Body } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
 import { SensorService } from './sensor.service';
 
 @Controller('sensor')
 export class SensorController {
   constructor(private readonly sensorService: SensorService) {}
 
-  @Get('latest')
-  getLatest() {
-    return this.sensorService.getLatestMqttData();
-  }
-
   @Get('variables')
-  getVariables() {
+  async getVariables() {
     return this.sensorService.getZipVariables();
   }
 
   @Get('value/:index/:subindex')
-  getValue(
+  async getValue(
     @Param('index') index: string,
     @Param('subindex') subindex: string,
   ) {
@@ -24,15 +19,20 @@ export class SensorController {
   }
 
   @Patch('value/:index/:subindex')
-  writeValue(
+  async writeValue(
     @Param('index') index: string,
     @Param('subindex') subindex: string,
     @Body() body: { value: any },
   ) {
-    return this.sensorService.writeVariableValue(
+    return this.sensorService.writeValue(
       Number(index),
       Number(subindex),
       body.value,
     );
+  }
+
+  @Get('latest')
+  getLatest() {
+    return this.sensorService.getLatestMqttData();
   }
 }
