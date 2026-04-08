@@ -1,5 +1,6 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue'
+import SensorsData from './SensorsData.vue'
 
 const loading = ref(true)
 const error = ref('')
