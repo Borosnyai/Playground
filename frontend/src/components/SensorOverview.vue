@@ -403,10 +403,11 @@ onMounted(() => {
 }
 
 .product-image {
-    max-width: 220px;
-    max-height: 320px;
+    max-width: 350px;
+    max-height: 350px;
     object-fit: contain;
-    margin-top: 80px;
+    margin-top: 40px;
+    padding-top: 40px;
 }
 
 .image-placeholder {
