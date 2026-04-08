@@ -1,24 +1,7 @@
 <script setup>
-import VariableTable from './components/VariableTable.vue'
+import SensorOverview from './components/SensorOverview.vue'
 </script>
 
 <template>
-  <div class="app-container">
-    <h1>IO-Link Variablen</h1>
-    <VariableTable />
-  </div>
+  <SensorOverview />
 </template>
-
-<style scoped>
-.app-container {
-  min-height: 100vh;
-  padding: 24px;
-  background: #0f172a;
-  color: white;
-  font-family: Arial, sans-serif;
-}
-
-h1 {
-  margin-bottom: 20px;
-}
-</style>
