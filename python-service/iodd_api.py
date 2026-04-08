@@ -1,4 +1,5 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from iodd_parser import IODDParser
 import os
 from dotenv import load_dotenv
@@ -8,6 +9,21 @@ from datetime import datetime, timezone
 import paho.mqtt.client as mqtt
 
 app = FastAPI()
+
+# --- CORS Konfiguration Start ---
+origins = [
+    "http://localhost:5173",    # Dein Vue-Frontend
+    "http://127.0.0.1:5173",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],  # Erlaubt GET, POST, OPTIONS, etc.
+    allow_headers=["*"],  # Erlaubt alle Header (Content-Type, Authorization, etc.)
+)
+# --- CORS Konfiguration Ende ---
 
 # env
 env_path = Path(__file__).resolve().parent.parent / ".env"
@@ -28,15 +44,15 @@ if not os.path.exists(iodd_file_path):
 parser = IODDParser()
 result = parser.parse_and_resolve(iodd_file_path)
 
-MQTT_BROKER = "localhost"
-MQTT_PORT = 1883
-MQTT_TOPIC = "sensors/light-barrier/data"
+# MQTT_BROKER = "localhost"
+# MQTT_PORT = 1883
+# MQTT_TOPIC = "sensors/light-barrier/data"
 
-mqtt_client = mqtt.Client(
-    mqtt.CallbackAPIVersion.VERSION1,
-    client_id="python-iodd-publisher"
-)
-mqtt_client.connect(MQTT_BROKER, MQTT_PORT, 60)
+# mqtt_client = mqtt.Client(
+#     mqtt.CallbackAPIVersion.VERSION1,
+#     client_id="python-iodd-publisher"
+# )
+# mqtt_client.connect(MQTT_BROKER, MQTT_PORT, 60)
 
 
 def clean_value(value):

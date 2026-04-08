@@ -1,6 +1,7 @@
 <script setup>
 import { onMounted, ref, computed } from 'vue'
 import SensorsData from './SensorsData.vue'
+import VariableTable from './VariableTable.vue'
 
 const loading = ref(true)
 const error = ref('')
@@ -34,21 +35,18 @@ async function loadOverview() {
         loading.value = true
         error.value = ''
 
-        rawData.value = {
-            manufacturer: 'Balluff GmbH',
-            articleNumber: 'BOS026R',
-            productName: 'BOS 21M-UUI-RP30-S4',
-            deviceId: '263955',
-            description: 'Multifunction Sensor (Diffuse, T-Beam, Retro, BGS) and more',
-            deviceFamily: 'BOS - Optical Sensor',
-            uploadedAt: '2/14/2018',
-            ioLinkRevision: '1.1',
-            version: 'V1.1',
-            ioddReleaseDate: '2/7/2018',
-            fileName: 'Balluff-BOS21UUIRP30-20180207-IODD1.1',
-            logoUrl: '/images/balluff-logo.png',
-            imageUrl: '/images/sensor.png'
+        const response = await fetch('http://localhost:8000/iodd')
+
+        if (!response.ok) {
+            throw new Error(`HTTP error: ${response.status}`)
         }
+
+        const data = await response.json()
+        console.log('Geladene Variablen:', data)
+
+        rawData.value = data || []
+
+        
     } catch (err) {
         console.error('Fehler beim Laden der Übersicht:', err)
         error.value = 'Fehler beim Laden der Übersichtsdaten'
@@ -94,7 +92,8 @@ const overviewRows = computed(() => {
                 d.productName,
                 d.product_name,
                 d.name,
-                d.deviceName
+                d.deviceName,
+                d.device_name
             ),
         },
         {
@@ -204,6 +203,10 @@ onMounted(() => {
             <button class="tab" :class="{ active: activeTab === 'ioddviewer' }" @click="activeTab = 'ioddviewer'">
                 Sensors data
             </button>
+
+            <button class="tab" :class="{ active: activeTab === 'vartable' }" @click="activeTab = 'vartable'">
+                Table of variables
+            </button>
         </div>
 
         <div class="content">
@@ -233,6 +236,9 @@ onMounted(() => {
 
                 <div v-show="activeTab === 'ioddviewer'">
                     <SensorsData />
+                </div>
+                <div v-show="activeTab === 'vartable'">
+                    <VariableTable />
                 </div>
             </template>
         </div>

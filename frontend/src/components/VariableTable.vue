@@ -48,7 +48,7 @@ async function loadVariables() {
     loading.value = true
     error.value = ''
 
-    const response = await fetch('http://localhost:3000/sensor/variables')
+    const response = await fetch('http://localhost:8000/variables')
 
     if (!response.ok) {
       throw new Error(`HTTP error: ${response.status}`)
@@ -71,7 +71,7 @@ async function readValue(variable) {
     const subindex = variable.subindex ?? 0
 
     const response = await fetch(
-      `http://localhost:3000/sensor/value/${variable.index}/${subindex}`
+      `http://localhost:8000/sensor/value/${variable.index}/${subindex}`
     )
 
     if (!response.ok) {
@@ -97,7 +97,7 @@ async function writeValue(variable) {
     const subindex = variable.subindex ?? 0
 
     const response = await fetch(
-      `http://localhost:3000/sensor/value/${variable.index}/${subindex}`,
+      `http://localhost:8000/sensor/value/${variable.index}/${subindex}`,
       {
         method: 'PATCH',
         headers: {
@@ -172,7 +172,7 @@ onMounted(() => {
 
 <style scoped>
 .table-wrapper {
-  background: #111827;
+  background: #3ea78e;
   padding: 16px;
   border-radius: 12px;
   overflow-x: auto;
@@ -192,7 +192,7 @@ onMounted(() => {
 }
 
 .variable-table th {
-  background: #1e293b;
+  background: #dc7798;
 }
 
 button {
