@@ -3,6 +3,7 @@ import os
 from dotenv import load_dotenv
 from pprint import pprint
 import json
+import zipfile
 
 
 
@@ -74,4 +75,30 @@ for key, value in vars_by_index.items():
 with open("output.json", "w") as f:
     json.dump(data, f, indent=2)
 
-pprint(result.variables)
+
+with zipfile.ZipFile(full_path, 'r') as z:
+    print(z.namelist())
+#pprint(dir(result))
+#pprint(result.iodd_device)
+
+#finding the relevant Info for our frontend
+#pprint(result.texts)
+
+# deviceID= 263955
+#print(result.iodd_device.profile_body.device_identity.device_id)
+
+#IolinkProfile
+#print(result.iodd_device.comm_network_profile)
+
+#version
+#print(result.iodd_device.document_info.version)
+
+#ZIP
+#print(os.path.basename(full_path))
+
+# iolink_revision
+#print(result.iodd_device.comm_network_profile.iolink_revision)
+
+# picture
+#print(result.iodd_device.profile_body.device_identity.device_variant_collection.device_variant[0].device_symbol)
+
