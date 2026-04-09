@@ -83,7 +83,8 @@ const overviewRows = computed(() => {
                 d.articleNumber,
                 d.article_number,
                 d.productId,
-                d.article
+                d.article,
+                
             ),
         },
         {
@@ -170,7 +171,7 @@ const manufacturerLogo = computed(() => {
 
 const productImage = computed(() => {
     const d = rawData.value || {}
-    return firstNonEmpty(d.imageUrl, d.image, d.productImage, '')
+    return firstNonEmpty(d.image_Url, d.image, d.productImage, '')
 })
 
 onMounted(() => {
