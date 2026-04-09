@@ -7,6 +7,8 @@ from pathlib import Path
 import json
 from datetime import datetime, timezone
 import paho.mqtt.client as mqtt
+import zipfile
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
@@ -100,7 +102,24 @@ def get_iodd_info():
         "device_name": clean_value(getattr(result, "device_name", None)),
         "manufacturer": clean_value(getattr(result, "device_manufacturer", None)),
         "description": result.texts['TI_ProductText'],
+        "article_number": clean_value(result.iodd_device.profile_body.device_identity.device_variant_collection.device_variant[0].product_id),
+        "device_id": clean_value(result.iodd_device.profile_body.device_identity.device_id),
+        "device_family": result.texts['TI_DeviceFamily'],
+        "uploaded_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "io_link_revision": result.iodd_device.comm_network_profile.iolink_revision,
+        "version": result.iodd_device.document_info.version,
+        "iodd_release_date": result.iodd_device.document_info.release_date,
+        "filename": IODD_FILE,
+        "image_Url": "http://localhost:8000/static/Balluff-BOS21UUIRP30-pic.png"
+
+
+        
     }
+
+# print(dir(result))
+# print(result.variables.get("V_ProductID"))
+# print(result.iodd_device)
+# print(result.iodd_definitions)
 
 
 @app.get("/debug-result")
@@ -184,7 +203,6 @@ def get_variables():
 
         items = getattr(datatype, "items", None)
 
-        # Ha vannak subitemek, akkor minden subitem külön sor legyen
         if items:
             for item in items:
                 variables.append({
@@ -355,7 +373,7 @@ def publish_process_data(subindex: int):
             detail=f"Process data item not found for subindex={subindex}"
         )
 
-    # most még tesztérték
+  
     if item["name"] in ["BDC1", "Stability", "Teach-In", "ok", "too low", "too high"]:
         current_value = True
     else:
@@ -381,3 +399,10 @@ def publish_process_data(subindex: int):
         "payload": payload
     }
 
+# Extract image from ZIP
+with zipfile.ZipFile(IODD_PATH + IODD_FILE, 'r') as z:
+    z.extract('Balluff-BOS21UUIRP30-pic.png', 'static')
+
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+print(os.getcwd())
